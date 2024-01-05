@@ -3,3 +3,5 @@ site_name: My Docs
 repo_url: https://github.com/facumoyanosmf/mkdocs-prueba
 repo_name: mkdocs-prueba
 site_url: https://facumoyanosmf.github.io/mkdocs-prueba/
+nav:
+  - Home: index.md
