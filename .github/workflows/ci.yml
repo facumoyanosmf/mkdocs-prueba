@@ -22,4 +22,8 @@ jobs:
       - run: pip install pillow cairosvg
       - run: pip install mike
       - run: pip install mkdocs-glightbox
+      - name: Setup Docs Deploy
+        run: |
+          git config --global user.name "facumoyanosmf"
+          git config --global user.email "facundo.moyano@smfconsulting.es"
       - run: mike deploy --push --update-aliases 23.x latest
