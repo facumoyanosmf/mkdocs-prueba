@@ -5,3 +5,7 @@ repo_name: mkdocs-prueba
 site_url: https://facumoyanosmf.github.io/mkdocs-prueba/
 nav:
   - Home: index.md
+extra:
+  version:
+    provider: mike
+    default: stable
