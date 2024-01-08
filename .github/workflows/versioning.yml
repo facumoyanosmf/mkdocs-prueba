@@ -18,13 +18,13 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
+      - name: Setup Docs Deploy
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
       - run: pip install mkdocs-material
       - run: pip install pillow cairosvg
       - run: pip install mike
       - run: pip install mkdocs-glightbox
-      - name: Setup Docs Deploy
-        run: |
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-      - run: ṕoetry run mike deploy --push --update-aliases 23.1 latest
-      - run: ṕoetry run mike set-default --push latest
+      - run: mike deploy --push --update-aliases 23.1 latest
+      - run: mike set-default --push latest
