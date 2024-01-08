@@ -18,7 +18,7 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
-      - run: git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
+      - run: echo "CORRIENDO DESDE YML"
       - run: pip install mkdocs-material
       - run: pip install pillow cairosvg
       - run: pip install mike
