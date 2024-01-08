@@ -24,6 +24,6 @@ jobs:
       - run: pip install mkdocs-glightbox
       - name: Setup Docs Deploy
         run: |
-          git config --global user.name "facumoyanosmf"
-          git config --global user.email "facundo.moyano@smfconsulting.es"
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
       - run: mike deploy --push --update-aliases 23.x latest
