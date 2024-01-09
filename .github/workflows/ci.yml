@@ -47,4 +47,4 @@ jobs:
       - run: pip install pillow cairosvg
       - run: pip install mike
       - run: pip install mkdocs-glightbox
-      - run: mike deploy --push --update-aliases 23.1 latest
+      - run: mike deploy --push --update-aliases ${{ secrets.VERSION_DOCS }} latest
