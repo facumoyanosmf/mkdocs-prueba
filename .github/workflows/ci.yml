@@ -1,3 +1,4 @@
+# ci.yml
 name: ci
 
 on:
@@ -9,58 +10,21 @@ permissions:
   contents: write
 
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.x
-
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/*.lock') }}
-          path: .cache
-          restore-keys: |
-            ${{ runner.os }}-pip-
-
-      - name: Install dependencies
-        run: |
-          pip install mkdocs-material pillow cairosvg mike mkdocs-glightbox
-
-      - name: Setup GitHub Config
-        run: |
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-
   deploy-docs:
-    needs: setup
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+      - name: Setup Docs
+        uses: ./setup-docs.yml
 
       - name: Deploy Docs
-        run: mkdocs gh-deploy
+        run: mkdocs gh-deploy --force
 
   deploy-versioning:
-    needs:
-      - deploy-docs
-      - setup
+    needs: deploy-docs
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+      - name: Setup Docs
+        uses: ./setup-docs.yml
 
       - name: Deploy Versioning
         run: mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest
