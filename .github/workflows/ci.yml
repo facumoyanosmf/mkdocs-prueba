@@ -20,6 +20,10 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
+      - name: Setup Github Config
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
       - run: pip install mkdocs-material
       - run: pip install pillow cairosvg
       - run: pip install mike
