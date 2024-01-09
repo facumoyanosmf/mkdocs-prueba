@@ -1,29 +1,40 @@
 name: ci
+
 on:
   push:
     branches:
       - main
+
 permissions:
   contents: write
+
 jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
         with:
           python-version: 3.x
-      - uses: actions/cache@v2
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
         with:
-          key: ${{ github.ref }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/*.lock') }}
           path: .cache
-      - run: pip install mkdocs-material
-      - run: pip install pillow cairosvg
-      - run: pip install mike
-      - run: pip install mkdocs-glightbox
-      - name: Setup Github Config
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          pip install mkdocs-material pillow cairosvg mike mkdocs-glightbox
+
+      - name: Setup GitHub Config
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -32,6 +43,11 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
       - name: Deploy Docs
         run: mkdocs gh-deploy
 
@@ -41,5 +57,10 @@ jobs:
       - setup
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
       - name: Deploy Versioning
         run: mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest
