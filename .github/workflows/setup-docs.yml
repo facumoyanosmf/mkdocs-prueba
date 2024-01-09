@@ -1,13 +1,12 @@
-name: 'Setup Docs'
-description: 'Greet someone'
+name: setup-docs
+description: Setup for deploying documentation
 runs:
   using: "composite"
   steps:
-    - name: Setup Github Config
-      run: |
+    - run: |
         git config --local user.name "github-actions[bot]"
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
-      - run: pip install mkdocs-material
-      - run: pip install pillow cairosvg
-      - run: pip install mike
-      - run: pip install mkdocs-glightbox
+    - run: pip install mkdocs-material
+    - run: pip install pillow cairosvg
+    - run: pip install mike
+    - run: pip install mkdocs-glightbox

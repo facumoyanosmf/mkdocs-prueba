@@ -20,7 +20,7 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
-      - uses: actions/setup-docs@v1
+      - uses: setup-docs@v1
       - run: mkdocs gh-deploy --force
   deploy-versioning:
     needs: deploy-docs
@@ -36,5 +36,5 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
-      - uses: actions/setup-docs@v1
+      - uses: setup-docs@v1
       - run: mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest
