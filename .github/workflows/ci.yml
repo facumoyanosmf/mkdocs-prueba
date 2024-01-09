@@ -20,9 +20,9 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
-      - uses: ./setup-docs@v1
+      - uses: ./setup-docs
       - run: mkdocs gh-deploy --force
-      
+
   deploy-versioning:
     needs: deploy-docs
     runs-on: ubuntu-latest
@@ -37,5 +37,5 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
-      - uses: ./setup-docs@
+      - uses: ./setup-docs
       - run: mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest
