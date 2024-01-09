@@ -7,7 +7,7 @@ on:
 permissions:
   contents: write
 jobs:
-  deploy:
+  deploy-docs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -25,8 +25,8 @@ jobs:
       - run: pip install mike
       - run: pip install mkdocs-glightbox
       - run: mkdocs gh-deploy --force
-  deploy-version:
-    needs: deploy
+  deploy-versioning:
+    needs: deploy-docs
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -39,7 +39,7 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
-      - name: Setup Docs Deploy
+      - name: Setup Github Config
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
