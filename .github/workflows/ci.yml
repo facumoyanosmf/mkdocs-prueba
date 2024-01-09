@@ -1,7 +1,9 @@
 name: ci
 on:
   push:
-    branches: [main]
+    branches:
+      - master
+      - main
 permissions:
   contents: write
 jobs:
@@ -9,8 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
@@ -22,8 +22,4 @@ jobs:
       - run: pip install pillow cairosvg
       - run: pip install mike
       - run: pip install mkdocs-glightbox
-      - name: Setup Docs Deploy
-        run: |
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
       - run: mkdocs gh-deploy --force
