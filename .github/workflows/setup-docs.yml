@@ -1,0 +1,36 @@
+# setup-docs.yml
+name: Setup Docs
+on:
+  workflow_run:
+    workflows: ["ci"]
+    types:
+      - completed
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          key: ${{ github.ref }}-pip-${{ hashFiles('**/*.lock') }}
+          path: .cache
+          restore-keys: |
+            ${{ github.ref }}-pip-
+      - name: Setup GitHub Config
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Install dependencies
+        run: |
+          pip install mkdocs-material
+          pip install pillow cairosvg
+          pip install mike
+          pip install mkdocs-glightbox

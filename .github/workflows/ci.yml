@@ -1,41 +1,28 @@
-name: ci
+# ci.yml
+name: CI
+
 on:
   push:
     branches:
-      - master
       - main
+
 permissions:
   contents: write
+
 jobs:
   deploy-docs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-python@v4
-        with:
-          python-version: 3.x
-      - uses: actions/cache@v2
-        with:
-          key: ${{ github.ref }}
-          path: .cache
-      - uses: ./
-      - run: mkdocs gh-deploy --force
+      - name: Setup Docs
+        uses: ./.github/workflows/setup-docs.yml
+      - name: Deploy Docs
+        run: mkdocs gh-deploy --force
 
   deploy-versioning:
     needs: deploy-docs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-python@v4
-        with:
-          python-version: 3.x
-      - uses: actions/cache@v2
-        with:
-          key: ${{ github.ref }}
-          path: .cache
-      - uses: ./
-      - run: mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest
+      - name: Setup Docs
+        uses: ./.github/workflows/setup-docs.yml
+      - name: Deploy Versioning
+        run: mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest
