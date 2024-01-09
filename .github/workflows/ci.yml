@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Docs
-        uses: ./.github/workflows/setup-docs.yml
+        uses: ./.github/workflows/setup-docs.yml@main
       - name: Deploy Docs
         run: mkdocs gh-deploy --force
 
@@ -23,6 +23,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Docs
-        uses: ./.github/workflows/setup-docs.yml
+        uses: ./.github/workflows/setup-docs.yml@main
       - name: Deploy Versioning
         run: mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest
