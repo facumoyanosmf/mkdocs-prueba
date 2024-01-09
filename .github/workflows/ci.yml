@@ -2,7 +2,6 @@ name: ci
 on:
   push:
     branches:
-      - master
       - main
 permissions:
   contents: write
@@ -20,35 +19,13 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
-      - name: Setup Github Config
-        run: |
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
       - run: pip install mkdocs-material
       - run: pip install pillow cairosvg
       - run: pip install mike
       - run: pip install mkdocs-glightbox
       - run: mkdocs gh-deploy --force
-  deploy-versioning:
-    needs: deploy-docs
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-python@v4
-        with:
-          python-version: 3.x
-      - uses: actions/cache@v2
-        with:
-          key: ${{ github.ref }}
-          path: .cache
       - name: Setup Github Config
         run: |
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-      - run: pip install mkdocs-material
-      - run: pip install pillow cairosvg
-      - run: pip install mike
-      - run: pip install mkdocs-glightbox
+          git config --local user.name "${{ secrets.ETENDO_NAME }}"
+          git config --local user.email "${{ secrets.DOCS_EMAIL }}"
       - run: mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest
