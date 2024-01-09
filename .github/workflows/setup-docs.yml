@@ -1,7 +1,7 @@
 # setup-docs.yml
 name: Setup Docs
 on:
-  workflow_dispatch:
+  workflow_call:
 jobs:
   setup:
     runs-on: ubuntu-latest
