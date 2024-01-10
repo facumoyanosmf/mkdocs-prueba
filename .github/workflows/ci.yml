@@ -20,10 +20,17 @@ jobs:
         uses: ./.github/actions/setup-docs
       - name: Deploy Docs
         run: mkdocs gh-deploy
+      - name: Wait for deployment
+        uses: lewagon/wait-on-check-action@v1.3.1
+        with:
+          ref: ${{ github.ref }}
+          running-workflow-name: 'pages-build-deployment'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+
 
   deploy-versioning:
     needs: deploy-docs
-    if: github.event_name == 'workflow_run' && github.workflow == 'pages-build-deployment'
     runs-on: ubuntu-latest
     steps:
       - name: Setup github config
