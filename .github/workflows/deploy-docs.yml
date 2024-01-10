@@ -2,7 +2,7 @@ name: deploy-docs
 
 on:
   workflow_run:
-    workflows: ['asd']
+    workflows: ['ci']
     types:
       - completed
 
@@ -12,7 +12,6 @@ permissions:
 jobs:
   deploy-versioning:
     runs-on: ubuntu-latest
-    if: github.event.workflow_run.conclusion == 'success' && github.run_number == 1
     steps:
       - name: Setup github config
         uses: actions/checkout@v3
