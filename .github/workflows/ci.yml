@@ -23,17 +23,21 @@ jobs:
 
   deploy-versioning:
     needs: deploy-docs
-    if: github.event_name == 'workflow_run' && github.event.workflow == 'pages-build-deployment' && github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Setup github config
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - name: Wait for other checks to succeed
+        uses: lewagon/wait-on-check-action@v1.3.1
+        with:
+          ref: ${{ github.ref }}
+          running-workflow-name: 'pages-build-deployment'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
       - name: Setup Docs
         uses: ./.github/actions/setup-docs
-      - name: Delay before Setup github config
-        run: sleep 30
       - name: Setup Github Config
         run: |
           git config --local user.name "${{ secrets.ETENDO_NAME}}"
