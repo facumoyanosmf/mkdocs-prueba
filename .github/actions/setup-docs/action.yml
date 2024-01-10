@@ -5,26 +5,30 @@ runs:
   using: composite
   steps:
     - name: Setup github config
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-        shell: bash
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+      shell: bash
+
     - name: Setup Python
-      - uses: actions/setup-python@v4
-        with:
-          python-version: 3.x
-        shell: bash
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.x
+      shell: bash
+
     - name: Setup Cache
-      - uses: actions/cache@v2
-        with:
-          key: ${{ github.ref }}
-          path: .cache
-        shell: bash
+      uses: actions/cache@v2
+      with:
+        key: ${{ github.ref }}
+        path: .cache
+      shell: bash
+
     - name: Setup Github Config
       run: |
         git config --local user.name "github-actions[bot]"
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
       shell: bash
+
     - name: Install Dependencies
       run: |
         pip install mkdocs-material
