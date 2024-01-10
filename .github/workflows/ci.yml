@@ -21,12 +21,16 @@ jobs:
       - name: Deploy Docs
         run: mkdocs gh-deploy
       - name: Wait for deployment
-        uses: lewagon/wait-on-check-action@v1.3.1
-        with:
-          ref: ${{ github.ref }}
-          running-workflow-name: 'pages-build-deployment'
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 10
+        run: |
+              LAST_JOB_STATUS=$(gh run list --workflow pages-build-deployment | grep -oh "completed.*" | head -1 | awk '{print $2}')
+              THIS_JOB_STATUS="${{ job.status }}"
+              if [ "$LAST_JOB_STATUS" != "$THIS_JOB_STATUS" ]; then
+                echo "status changed from $LAST_JOB_STATUS to $THIS_JOB_STATUS"
+                echo "::set-output name=changedState::true"
+              else
+                echo "status is still $THIS_JOB_STATUS"
+                echo "::set-output name=changedState::false"
+              fi
 
 
   deploy-versioning:
