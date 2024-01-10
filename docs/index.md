@@ -2,11 +2,6 @@
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
-Prueba 12342342342
-
-asdasd
-
-asdasd
 
 ## Commands
 
