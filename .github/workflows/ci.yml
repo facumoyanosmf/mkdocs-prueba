@@ -21,16 +21,8 @@ jobs:
       - name: Deploy Docs
         run: mkdocs gh-deploy
 
-  check-deploy-docs:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Await completion of another workflow
-        uses: johannesvedder/await-workflow@v1
-        with:
-          workflowId: pages-build-deployment
-
   deploy-versioning:
-    needs: check-deploy-docs  
+    needs: deploy-docs  
     runs-on: ubuntu-latest
     steps:
       - name: Setup github config
