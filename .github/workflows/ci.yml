@@ -21,21 +21,21 @@ jobs:
       - name: Deploy Docs
         run: mkdocs gh-deploy
 
-  deploy-versioning:
-    needs: deploy-docs
-    runs-on: ubuntu-latest
-    steps:
-      - name: Setup github config
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Setup Docs
-        uses: ./.github/actions/setup-docs
-      - name: Delay before Setup github config
-        run: sleep 60
-      - name: Setup Github Config
-        run: |
-          git config --local user.name "${{ secrets.ETENDO_NAME}}"
-          git config --local user.email "${{ secrets.ETENDO_EMAIL}}"
-      - name: Deploy Versioning
-        run: mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest
+  # deploy-versioning:
+  #   needs: deploy-docs
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Setup github config
+  #       uses: actions/checkout@v3
+  #       with:
+  #         fetch-depth: 0
+  #     - name: Setup Docs
+  #       uses: ./.github/actions/setup-docs
+  #     - name: Delay before Setup github config
+  #       run: sleep 60
+  #     - name: Setup Github Config
+  #       run: |
+  #         git config --local user.name "${{ secrets.ETENDO_NAME}}"
+  #         git config --local user.email "${{ secrets.ETENDO_EMAIL}}"
+  #     - name: Deploy Versioning
+  #       run: mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest

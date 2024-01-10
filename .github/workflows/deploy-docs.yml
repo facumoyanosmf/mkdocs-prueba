@@ -2,7 +2,7 @@ name: deploy-docs
 
 on:
   workflow_run:
-    workflows: ['asd']
+    workflows: ['pages-build-deployment']
     types:
       - completed
 
@@ -12,6 +12,7 @@ permissions:
 jobs:
   deploy-versioning:
     runs-on: ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'success' && github.run_number == 1
     steps:
       - name: Setup github config
         uses: actions/checkout@v3
@@ -24,7 +25,4 @@ jobs:
           git config --local user.name "${{ secrets.ETENDO_NAME }}"
           git config --local user.email "${{ secrets.ETENDO_EMAIL }}"
       - name: Deploy Versioning
-        run: |
-          if [ "${{ github.event.workflow }}" != "pages-build-deployment" ]; then
-            mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest
-          fi
+        run: mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest
