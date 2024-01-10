@@ -2,7 +2,7 @@ name: deploy-docs
 
 on:
   workflow_run:
-    workflows: ['asd']
+    workflows: ['pages-build-deployment']
     types:
       - completed
 
@@ -24,4 +24,7 @@ jobs:
           git config --local user.name "${{ secrets.ETENDO_NAME }}"
           git config --local user.email "${{ secrets.ETENDO_EMAIL }}"
       - name: Deploy Versioning
-        run: mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest
+        run: |
+          if [ "${{ github.actor }}" != "${{ secrets.ETENDO_NAME }}" ]; then
+            mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest
+          fi
