@@ -1,28 +1,19 @@
-name: versioning
+name: ci
 on:
-    release:
-        types: [published]
+  push:
+    branches:
+      - main
 permissions:
   contents: write
 jobs:
-  deploy:
+  deploy-docs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: 3.x
-      - uses: actions/cache@v2
-        with:
-          key: ${{ github.ref }}
-          path: .cache
-      - run: pip install mkdocs-material
-      - run: pip install pillow cairosvg
-      - run: pip install mike
-      - run: pip install mkdocs-glightbox
-      - name: Setup Docs Deploy
-        run: |
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-      - run: mike deploy --push --update-aliases 23.3 latest
-      - run: mike set-default --push latest
+      - uses: ./github/actions/setup-docs
+      - run: mkdocs gh-deploy --force
+  deploy-versioning:
+    needs: deploy-docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./github/actions/setup-docs
+      - run: mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest
