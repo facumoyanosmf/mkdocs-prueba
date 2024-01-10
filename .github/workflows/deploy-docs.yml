@@ -2,10 +2,7 @@ name: deploy-docs
 
 on:
   workflow_run:
-    workflows:
-      - pages-build-deployment
-    branches:
-      - main
+    workflows: ['pages-build-deployment']
     types:
       - completed
 
