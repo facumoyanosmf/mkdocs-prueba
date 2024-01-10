@@ -24,13 +24,13 @@ jobs:
   deploy-versioning:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for tests to succeed
-        uses: lewagon/wait-on-check-action@v1.3.1
+      - name: Workflow Wait Action
+        uses: willgarcia/workflow-wait-action@0.1.0
         with:
-          ref: ${{ github.ref }}
-          check-name: 'pages-build-deployment'
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 10
+          access_token: ${{ secrets.GITHUB_TOKEN }}
+          timeout: 600
+          interval: 10
+          initial_delay: 30
       - name: Setup github config
         uses: actions/checkout@v3
         with:
