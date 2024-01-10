@@ -25,20 +25,37 @@ jobs:
     needs: deploy-docs
     runs-on: ubuntu-latest
     steps:
-      - name: Await 5 seconds
-        run: sleep 5
       - name: Check external workflow status
         id: check-status
         run: |
+          # Inicia el temporizador
+          SECONDS=0
+
+          # Realiza la primera solicitud para obtener el estado actual del flujo de trabajo
           status=$(curl -s -X GET -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
             -H "Accept: application/vnd.github.v3+json" \
             https://api.github.com/repos/facumoyanosmf/mkdocs-prueba/actions/workflows/pages-build-deployment/runs?event=workflow_dispatch \
             | jq -r '.workflow_runs[0].status')
 
-          if [ "$status" != "completed" ]; then
-            echo "External workflow is still running or failed."
-            exit 1
-          fi
+          # Espera hasta que el flujo de trabajo esté completado
+          while [ "$status" != "completed" ]; do
+            sleep 20  # Espera 10 segundos antes de realizar la siguiente solicitud
+
+            # Verifica si ha pasado un tiempo considerable y el flujo de trabajo aún no ha terminado
+            if [ $SECONDS -gt 1800 ]; then  # Espera un máximo de 30 minutos (1800 segundos)
+              echo "Timeout waiting for the external workflow to complete."
+              exit 1
+            fi
+
+            # Realiza otra solicitud para obtener el estado actual del flujo de trabajo
+            status=$(curl -s -X GET -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github.v3+json" \
+              https://api.github.com/repos/facumoyanosmf/mkdocs-prueba/actions/workflows/pages-build-deployment/runs?event=workflow_dispatch \
+              | jq -r '.workflow_runs[0].status')
+          done
+
+          echo "External workflow has completed."
+
 
   deploy-versioning:
     needs: check-external-workflow
