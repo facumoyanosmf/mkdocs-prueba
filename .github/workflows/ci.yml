@@ -21,18 +21,27 @@ jobs:
       - name: Deploy Docs
         run: mkdocs gh-deploy
 
-  external-workflow-trigger:
+  check-external-workflow:
     needs: deploy-docs
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger external workflow
+      - name: Await 5 seconds
+        run: sleep 5
+      - name: Check external workflow status
+        id: check-status
         run: |
-          curl -X POST -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          status=$(curl -s -X GET -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
             -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/facumoyanosmf/mkdocs-prueba/actions/workflows/pages-build-deployment/dispatches
+            https://api.github.com/repos/facumoyanosmf/mkdocs-prueba/actions/workflows/pages-build-deployment/runs?event=workflow_dispatch \
+            | jq -r '.workflow_runs[0].status')
+
+          if [ "$status" != "completed" ]; then
+            echo "External workflow is still running or failed."
+            exit 1
+          fi
 
   deploy-versioning:
-    needs: external-workflow-trigger
+    needs: check-external-workflow
     runs-on: ubuntu-latest
     steps:
       - name: Setup github config
@@ -43,7 +52,7 @@ jobs:
         uses: ./.github/actions/setup-docs
       - name: Setup Github Config
         run: |
-          git config --local user.name "${{ secrets.ETENDO_NAME}}"
-          git config --local user.email "${{ secrets.ETENDO_EMAIL}}"
+          git config --local user.name "${{ secrets.ETENDO_NAME }}"
+          git config --local user.email "${{ secrets.ETENDO_EMAIL }}"
       - name: Deploy Versioning
         run: mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest
