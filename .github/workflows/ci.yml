@@ -21,19 +21,18 @@ jobs:
       - name: Deploy Docs
         run: mkdocs gh-deploy
 
-  pages-build-check:
+  external-workflow-trigger:
     needs: deploy-docs
     runs-on: ubuntu-latest
     steps:
-      - name: Setup github config
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Check Pages Build
-        uses: ./.github/workflows/check-pages-build.yml
+      - name: Trigger external workflow
+        run: |
+          curl -X POST -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/facumoyanosmf/mkdocs-prueba/actions/workflows/pages-build-deployment/dispatches
 
   deploy-versioning:
-    needs: pages-build-check
+    needs: external-workflow-trigger
     runs-on: ubuntu-latest
     steps:
       - name: Setup github config
