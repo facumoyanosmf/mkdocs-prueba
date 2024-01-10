@@ -30,7 +30,7 @@ jobs:
           workflowId: pages-build-deployment
 
   deploy-versioning:
-    needs: deploy-docs  
+    needs: check-deploy-docs  
     runs-on: ubuntu-latest
     steps:
       - name: Setup github config
