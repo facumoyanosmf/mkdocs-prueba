@@ -12,6 +12,10 @@ permissions:
 jobs:
   deploy-versioning:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        exclude:
+          - workflow: pages-build-deployment
     steps:
       - name: Setup github config
         uses: actions/checkout@v3
@@ -24,7 +28,4 @@ jobs:
           git config --local user.name "${{ secrets.ETENDO_NAME }}"
           git config --local user.email "${{ secrets.ETENDO_EMAIL }}"
       - name: Deploy Versioning
-        run: |
-          if [ "${{ github.actor }}" != "${{ secrets.ETENDO_NAME }}" ]; then
-            mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest
-          fi
+        run: mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest
