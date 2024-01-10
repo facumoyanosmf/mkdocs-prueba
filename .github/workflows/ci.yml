@@ -22,7 +22,6 @@ jobs:
         run: mkdocs gh-deploy --force
 
   deploy-versioning:
-    needs: deploy-docs
     runs-on: ubuntu-latest
     steps:
       - name: Setup github config
