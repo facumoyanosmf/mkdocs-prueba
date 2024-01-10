@@ -22,6 +22,7 @@ jobs:
         run: mkdocs gh-deploy --force
 
   deploy-versioning:
+    needs: deploy-docs
     runs-on: ubuntu-latest
     steps:
       - name: Setup github config
@@ -30,5 +31,9 @@ jobs:
           fetch-depth: 0
       - name: Setup Docs
         uses: ./.github/actions/setup-docs
+      - name: Setup Github Config
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
       - name: Deploy Versioning
         run: mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest
