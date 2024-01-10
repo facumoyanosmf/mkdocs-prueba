@@ -10,9 +10,5 @@ jobs:
   notify-on-pages-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup github config
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - name: Notify on Pages Build Completion
         run: echo "Pages Build Workflow Completed"
