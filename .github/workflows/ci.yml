@@ -22,13 +22,14 @@ jobs:
         run: mkdocs gh-deploy
 
   pages-build-check:
+    needs: deploy-docs
     runs-on: ubuntu-latest
     steps:
       - name: Check Pages Build
         uses: ./.github/workflows/check-pages-build.yml
 
   deploy-versioning:
-    needs: deploy-docs
+    needs: pages-build-check
     runs-on: ubuntu-latest
     steps:
       - name: Setup github config
