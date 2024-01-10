@@ -20,18 +20,12 @@ jobs:
         uses: ./.github/actions/setup-docs
       - name: Deploy Docs
         run: mkdocs gh-deploy
-      - name: Wait for deployment
-        run: |
-              LAST_JOB_STATUS=$(gh run list --workflow pages-build-deployment | grep -oh "completed.*" | head -1 | awk '{print $2}')
-              THIS_JOB_STATUS="${{ job.status }}"
-              if [ "$LAST_JOB_STATUS" != "$THIS_JOB_STATUS" ]; then
-                echo "status changed from $LAST_JOB_STATUS to $THIS_JOB_STATUS"
-                echo "::set-output name=changedState::true"
-              else
-                echo "status is still $THIS_JOB_STATUS"
-                echo "::set-output name=changedState::false"
-              fi
 
+  pages-build-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Pages Build
+        uses: ./.github/workflows/check-pages-build.yml
 
   deploy-versioning:
     needs: deploy-docs
