@@ -8,9 +8,11 @@ runs:
       run: |
         git config --local user.name "github-actions[bot]"
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
+      shell: bash
     - name: Install Dependencies
       run: |
         pip install mkdocs-material
         pip install pillow cairosvg
         pip install mike
         pip install mkdocs-glightbox
+      shell: bash
