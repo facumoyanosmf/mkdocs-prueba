@@ -1,5 +1,5 @@
 name: Setup Docs
-description: Setup MkDocs
+description: Setup configuration for MkDocs
 
 runs:
   using: composite
