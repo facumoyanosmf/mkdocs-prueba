@@ -4,16 +4,6 @@ description: Setup MkDocs
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-    - uses: actions/setup-python@v4
-      with:
-        python-version: 3.x
-    - uses: actions/cache@v2
-      with:
-        key: ${{ github.ref }}
-        path: .cache
     - name: Setup Github Config
       run: |
         git config --local user.name "github-actions[bot]"
