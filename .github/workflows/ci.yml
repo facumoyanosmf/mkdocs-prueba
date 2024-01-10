@@ -23,6 +23,7 @@ jobs:
 
   deploy-versioning:
     needs: deploy-docs
+    if: github.event_name == 'workflow_run' && github.workflow == 'pages-build-deployment'
     runs-on: ubuntu-latest
     steps:
       - name: Setup github config
