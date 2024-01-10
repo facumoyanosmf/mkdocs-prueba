@@ -24,7 +24,7 @@ jobs:
           key: ${{ github.ref }}
           path: .cache
       - name: Setup Docs
-        uses: ./.github/workflows/setup-docs
+        uses: ./.github/actions/setup-docs
       - name: Deploy Docs
         run: mkdocs gh-deploy --force
 
@@ -43,6 +43,6 @@ jobs:
           key: ${{ github.ref }}
           path: .cache
       - name: Setup Docs
-        uses: ./.github/workflows/setup-docs
+        uses: ./.github/actions/setup-docs
       - name: Deploy Versioning
         run: mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest
