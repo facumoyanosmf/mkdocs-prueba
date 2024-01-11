@@ -25,8 +25,8 @@ jobs:
     
           - name: Commit Changes
             run: |
-              git config --local user.email "actions@github.com"
-              git config --local user.name "GitHub Actions"
+              git config --local user.name "${{ secrets.ETENDO_NAME }}"
+              git config --local user.email "${{ secrets.ETENDO_EMAIL }}"
               git add compiled_docs.md
               git commit -m "Update compiled docs file :page_facing_up:" || echo "No changes to commit"
               git push origin main
