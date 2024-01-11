@@ -2,7 +2,7 @@ name: deploy-docs
 
 on:
   workflow_run:
-    workflows: ['ci']
+    workflows: ['asd']
     types:
       - completed
 
