@@ -1,0 +1,26 @@
+name: Build and Commit Docs
+
+on:
+  push:
+    branches:
+      - main  # Ajusta el nombre de la rama según tu configuración
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Docs
+        uses: ./.github/actions/setup-docs
+
+      - name: Run Script
+        run: python compile_docs.py
+
+      - name: Commit Changes
+        run: |
+          git add compiled_docs.md
+          git commit -m "Update compiled docs" || echo "No changes to commit"
+          git push origin main
