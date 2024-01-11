@@ -1,9 +1,10 @@
 name: compile docs
 
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: ['asd']
+    types:
+      - completed
 
 permissions:
   contents: write
