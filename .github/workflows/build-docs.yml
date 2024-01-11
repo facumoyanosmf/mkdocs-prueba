@@ -1,9 +1,10 @@
 name: Build and Commit Docs
 
 on:
-  push:
-    branches:
-      - main  # Ajusta el nombre de la rama según tu configuración
+    workflow_run:
+      workflows: ['pages-build-deployment']
+      types:
+        - completed
 
 jobs:
   build:
