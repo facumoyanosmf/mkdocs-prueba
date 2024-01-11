@@ -3,7 +3,7 @@
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
-PRUEBA  asdasd
+HOME
 
 
 ### Commands
@@ -26,7 +26,7 @@ Source: [https://facumoyanosmf.github.io/mkdocs-prueba/latest/index.md](https://
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
-ABOUT
+ABOUT 1
 
 
 ### Commands
