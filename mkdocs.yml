@@ -6,6 +6,7 @@ site_url: https://facumoyanosmf.github.io/mkdocs-prueba/
 nav:
   - Home: index.md
   - About: about.md
+  - Contact: contact.md
 extra:
   version:
     provider: mike
