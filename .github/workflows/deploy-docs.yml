@@ -29,8 +29,10 @@ jobs:
   compiled-docs:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+      - name: Setup github config
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Setup Docs
         uses: ./.github/actions/setup-docs
