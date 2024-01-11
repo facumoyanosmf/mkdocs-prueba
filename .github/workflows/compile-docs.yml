@@ -17,9 +17,6 @@ jobs:
             with:
               fetch-depth: 0
     
-          - name: Setup Docs
-            uses: ./.github/actions/setup-docs
-    
           - name: Run Script
             run: python compile_docs.py
     
