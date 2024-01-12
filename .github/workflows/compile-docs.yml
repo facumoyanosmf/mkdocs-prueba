@@ -9,28 +9,21 @@ permissions:
   contents: write
 
 jobs:
-  compile-docs:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Setup github config
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+    compile-docs:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Setup github config
+            uses: actions/checkout@v3
+            with:
+              fetch-depth: 0
+                  
+          - name: Run Script
+            run: python compile_docs.py
     
-      - name: Run Script
-        run: python compile_docs.py
-    
-      - name: Check for Changes
-        run: |
-          git diff --quiet || exit 0
-          exit 1
-        id: check_changes
-    
-      - name: Commit Changes
-        if: steps.check_changes.outputs.result == '1'
-        run: |
-          git config --local user.name "${{ secrets.ETENDO_NAME }}"
-          git config --local user.email "${{ secrets.ETENDO_EMAIL }}"
-          git add compiled_docs.md
-          git commit -m "Update 'compiled_docs' file :page_facing_up:" || echo "No changes to commit"
-          git push origin main
+          - name: Commit Changes
+            run: |
+              git config --local user.name "${{ secrets.ETENDO_NAME }}"
+              git config --local user.email "${{ secrets.ETENDO_EMAIL }}"
+              git add compiled_docs.md
+              git commit -m "Update 'compiled_docs' file :page_facing_up:" || echo "No changes to commit"
+              git push origin main
