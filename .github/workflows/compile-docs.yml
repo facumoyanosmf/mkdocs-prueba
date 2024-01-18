@@ -24,12 +24,13 @@ jobs:
           - name: Check commit message format
             run: |
               commit_message=$(git log -1 --pretty=%B)
-              if [[ $commit_message =~ ^Update 'compiled_docs' file :page_facing_up:$ ]]; then
+              if [[ "$commit_message" =~ ^Update\ \'compiled_docs\'\ file\ :page_facing_up:$ ]]; then
                 echo "Commit message format is correct, skipping further steps."
                 exit 78 # 78 is a neutral exit code indicating a skipped run
               else
                 echo "Commit message format is incorrect, continuing with the workflow."
               fi
+            
                   
           - name: Run Script
             run: python compile_docs.py
