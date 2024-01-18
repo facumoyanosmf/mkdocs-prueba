@@ -26,7 +26,7 @@ jobs:
             run: |
               commit_message=$(git log -1 --pretty=%B)
               if [[ "$commit_message" =~ ^Update\ \'compiled_docs\'\ file\ :page_facing_up:$ ]]; then
-                echo "Cancel the workflow."
+                echo "Skipping steps"
                 echo "::set-output name=skip_steps::true"
               fi
             
