@@ -22,20 +22,24 @@ jobs:
               fetch-depth: 0
 
           - name: Check commit message format
+            id: commit-check
             run: |
-              commit_message=$(git log -1 --pretty=%B)
-              if [[ "$commit_message" =~ ^Update\ \'compiled_docs\'\ file\ :page_facing_up:$ ]]; then
-                echo "Commit message format is correct, skipping further steps."
-                exit 78 # 78 is a neutral exit code indicating a skipped run
-              else
-                echo "Commit message format is incorrect, continuing with the workflow."
-              fi
+                commit_message=$(git log -1 --pretty=%B)
+                if [[ "$commit_message" =~ ^Update\ \'compiled_docs\'\ file\ :page_facing_up:$ ]]; then
+                  echo "Cancel the workflow."
+                  echo "::set-output name=skip_steps::true"
+                else
+                  echo "Continue workflow"
+                  echo "::set-output name=skip_steps::false"
+                fi
             
                   
           - name: Run Script
+            if: steps.commit-check.outputs.skip_steps != 'true'
             run: python compile_docs.py
     
           - name: Commit Changes
+            if: steps.commit-check.outputs.skip_steps != 'true'
             run: |
               git config --local user.name "${{ secrets.ETENDO_NAME }}"
               git config --local user.email "${{ secrets.ETENDO_EMAIL }}"
