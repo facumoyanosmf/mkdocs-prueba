@@ -24,14 +24,11 @@ jobs:
           - name: Check commit message format
             id: commit-check
             run: |
-                commit_message=$(git log -1 --pretty=%B)
-                if [[ "$commit_message" =~ ^Update\ \'compiled_docs\'\ file\ :page_facing_up:$ ]]; then
-                  echo "Cancel the workflow."
-                  echo "::set-output name=skip_steps::true"
-                else
-                  echo "Continue workflow"
-                  echo "::set-output name=skip_steps::false"
-                fi
+              commit_message=$(git log -1 --pretty=%B)
+              if [[ "$commit_message" =~ ^Update\ \'compiled_docs\'\ file\ :page_facing_up:$ ]]; then
+                echo "Cancel the workflow."
+                echo "::set-output name=skip_steps::true"
+              fi
             
                   
           - name: Run Script
