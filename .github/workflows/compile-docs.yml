@@ -11,6 +11,9 @@ permissions:
 jobs:
     compile-docs:
         runs-on: ubuntu-latest
+        concurrency:
+          group: compile-docs
+          cancel-in-progress: true
         steps:
           - name: Setup github config
             uses: actions/checkout@v3
