@@ -2,7 +2,7 @@
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
-CONTACT 23423423
+CONTACT 2
 
 
 ## Commands
