@@ -17,6 +17,6 @@ jobs:
               with: 
                 fetch-depth: 0
             - name: Setup docs
-              uses: ./github/actions/setup-docs
+              uses: ./.github/actions/setup-docs
             - name: Deploy docs
               run: mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest
