@@ -18,5 +18,9 @@ jobs:
                 fetch-depth: 0
             - name: Setup docs
               uses: ./.github/actions/setup-docs
+            - name: Config user credentials
+              run: |
+                git config --local user.email "${{ secrets.ETENDO_EMAIL }}"
+                git config --local user.name "${{ secrets.ETENDO_NAME }}"
             - name: Deploy docs
               run: mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest
