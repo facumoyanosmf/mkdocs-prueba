@@ -1,0 +1,22 @@
+name: Deploy docs
+
+on:
+    push:
+        branches:
+            - main
+
+permissions:
+    contents: write
+
+jobs:
+    deploy-docs:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+              with: 
+                fetch-depth: 0
+            - name: Setup docs
+              uses: ./github/actions/setup-docs
+            - name: Deploy docs
+              run: mike deploy --push --update-aliases ${{ secrets.DOCS_VERSION }} latest
