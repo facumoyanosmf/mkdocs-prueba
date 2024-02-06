@@ -58,46 +58,7 @@ def run():
             f.close()
 
 
-def get_file_content(value, level):
-    if value.endswith(".md"):
-        with (open("docs/" + value, "r") as f):
-            lines = f.readlines()
 
-            content = ""
-            start = False
-            for line in lines:
-                if line.startswith("#"):
-                    start = True
-                if start:
-                    if line.startswith("#"):
-                        content += "#" * level + line.lstrip()
-                    else:
-                        content += line
-
-            ## add the source link, this links is for check the same info in the online
-            # Wiki of etendo
-            content += "\n"
-            content += "Source: [https://facumoyanosmf.github.io/mkdocs-prueba/latest/" + value + "](https://facumoyanosmf.github.io/mkdocs-prueba/latest/" + value + ")"
-            content += "\n"
-    else:  # link to an url
-        content = "Source: [" + value + "](" + value + ")"
-        content += "\n"
-    return content
-
-
-
-
-def get_content(json_hier, level=1):
-    content = ""
-    for element in json_hier:
-        for key, value in element.items():
-            if isinstance(value, list):
-                content += "#" * level + " " + key + "\n"
-                content += get_content(value, level + 1)
-            else:
-                content += "#" * level + " " + key + "\n"
-                content += get_file_content(value, level)
-    return content
 
 
 run()
