@@ -57,6 +57,45 @@ def run():
             f.write(content)
             f.close()
 
+            def run():
+    # read the mkdocs.yml file
+    with open("mkdocs.yml", "r") as f:
+        lines = f.readlines()
+        # advance to nav section
+        json_hierarchy = mkdocs_nav_to_json(lines)
+        # get the content of the files
+        content = get_content(json_hierarchy)
+        # Write the content to a file
+        with open("compiled_docs.md", "w") as f:
+            f.write(content)
+            f.close()
+
+            def run():
+    # read the mkdocs.yml file
+    with open("mkdocs.yml", "r") as f:
+        lines = f.readlines()
+        # advance to nav section
+        json_hierarchy = mkdocs_nav_to_json(lines)
+        # get the content of the files
+        content = get_content(json_hierarchy)
+        # Write the content to a file
+        with open("compiled_docs.md", "w") as f:
+            f.write(content)
+            f.close()
+
+            def run():
+    # read the mkdocs.yml file
+    with open("mkdocs.yml", "r") as f:
+        lines = f.readlines()
+        # advance to nav section
+        json_hierarchy = mkdocs_nav_to_json(lines)
+        # get the content of the files
+        content = get_content(json_hierarchy)
+        # Write the content to a file
+        with open("compiled_docs.md", "w") as f:
+            f.write(content)
+            f.close()
+
 
 def get_file_content(value, level):
     if value.endswith(".md"):
