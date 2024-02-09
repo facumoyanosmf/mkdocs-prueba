@@ -115,8 +115,8 @@ def get_content(json_hier, path, title='', content=''):
     for element in json_hier:
         for key, value in element.items():
             path_r = path + "/" + key
-            if key.startswith('.'):
-                continue
+            # if key.startswith('.'):
+            #     continue
             if isinstance(value, list):
                 content += get_content(value, path_r, title=key, content='')
             else:
