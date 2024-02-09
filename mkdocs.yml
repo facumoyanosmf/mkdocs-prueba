@@ -9,7 +9,7 @@ nav:
   - Contact: contact.md
   - Products: products.md
   - Page 1: 
-    - Page 1.1: page1.md
+    - Page 1.1: page1/page1.md
 extra:
   version:
     provider: mike
