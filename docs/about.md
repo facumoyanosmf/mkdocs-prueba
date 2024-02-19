@@ -23,7 +23,8 @@ asd
 
 | Version | Publication Date | Status |
 | --- | --- | --- |
-| [23.1](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished) | 08-01-2024 | CS |
+| [23.1](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished) | 08/01/2024 | CS |
+| [23.1](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished) | 08-01-2024 | C |
 | [23.1](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished) | 04/01/2024 | CS |
 | [1.3.2](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished) | 04/01/2024 | CS |
 | [23.1](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished) | 04/01/2024 | CS |
