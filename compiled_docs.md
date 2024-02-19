@@ -33,7 +33,6 @@ HOME
  https://facumoyanosmf.github.io/mkdocs-prueba/latest/about
 ## Article Content: 
 ### Welcome to MkDocs
-
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
 ABOUT 24234
@@ -69,6 +68,7 @@ ABOUT 24234
 | 1.1.1 | 10/07/2023 | C  |
 | 1.1.0 | 30/05/2023 | C  |
 | 1.0.7 | 05/04/2023 | C  |
+
 ==ARTICLE_END==
 ==ARTICLE_START==
 # Article Title: Contact
