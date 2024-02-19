@@ -8,8 +8,8 @@ nav:
   - About: about.md
   - Contact: contact.md
   - Products: products.md
-  - Page 1: 
-    - Page 1.1: page1/page1.md
+  - versions: 
+    - Overview: versions/overview.md
 extra:
   version:
     provider: mike
