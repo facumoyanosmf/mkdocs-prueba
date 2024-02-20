@@ -12,10 +12,8 @@ tags:
 
 | Release notes | Publication date | Version | Status | ISO Image | GitHub |
 | ---           | ---              | ---     | ---    | ---       | :---:  |
-| [24Q1.1](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished){target="_blank"} | 08/01/2024 | 24.1.1 | C | [24Q1.1.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-24.1.1.iso){target="_blank"} | ✅ |
-| [23Q4.1](../23Q4-1) | 02/02/2023 | 23.4.1 | CS	| | :white_check_mark:|
-| [23Q4.0](../23Q4-0) | 28/12/2023 | 23.4.0 | C	| [23Q4-0.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-23Q4.0.iso) | :white_check_mark:|
-| [23Q3.4](../23Q3-4) | 05/12/2023 | 23.3.4 | C | | :white_check_mark:|
+| [23Q4.0](../23Q4-0) | 28/12/2023 | 23.4.0 | QAA	| [23Q4-0.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-23Q4.0.iso) | :white_check_mark:|
+| [23Q3.4](../23Q3-4) | 05/12/2023 | 23.3.4 | CS | | :white_check_mark:|
 | [23Q3.3](../23Q3-3) | 30/11/2023 | 23.3.3 | C | | :white_check_mark:|
 | [23Q3.2](../23Q3-2) | 10/11/2023 | 23.3.2 | C	| | :white_check_mark:|
 | [23Q3.1](../23Q3-1) | 01/11/2023 | 23.3.1 | C	| | :white_check_mark:|
