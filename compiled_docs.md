@@ -135,9 +135,10 @@ PRODUCTS
 
 | Release notes | Publication date | Version | Status | ISO Image | GitHub |
 | ---           | ---              | ---     | ---    | ---       | :---:  |
-| [24Q1.2](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished){target="_blank"} | 08/01/2024 | 24.1.2 | QAA | [24Q1.2.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-24.1.2.iso){target="_blank"} | ✅ |
+| [25Q1.0](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished){target="_blank"} | 08/01/2024 | 25.1.0 | QAA | [25Q1.0.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-25.1.0.iso){target="_blank"} | ✅ |
+| [24Q1.2](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished){target="_blank"} | 08/01/2024 | 24.1.2 | CS | [24Q1.2.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-24.1.2.iso){target="_blank"} | ✅ |
 | [24Q1.1](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished){target="_blank"} | 08/01/2024 | 24.1.1 | C | [24Q1.1.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-24.1.1.iso){target="_blank"} | ✅ |
-| [24.1.0](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished){target="_blank"} | 08/01/2024 | 24.1.0 | CS | [24Q1.0.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-24.1.0.iso){target="_blank"} | ✅ |
+| [24.1.0](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished){target="_blank"} | 08/01/2024 | 24.1.0 | C | [24Q1.0.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-24.1.0.iso){target="_blank"} | ✅ |
 | [23Q4.0](https://facumoyanosmf.github.io/mkdocs-prueba/latest/23Q4-0) | 28/12/2023 | 23.4.0 | C	| [23Q4-0.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-23Q4.0.iso) | :white_check_mark:|
 | [23Q3.4](https://facumoyanosmf.github.io/mkdocs-prueba/latest/23Q3-4) | 05/12/2023 | 23.3.4 | C | | :white_check_mark:|
 | [23Q3.3](https://facumoyanosmf.github.io/mkdocs-prueba/latest/23Q3-3) | 30/11/2023 | 23.3.3 | C | | :white_check_mark:|
