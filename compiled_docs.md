@@ -135,15 +135,7 @@ PRODUCTS
 
 | Release notes | Publication date | Version | Status | ISO Image | GitHub |
 | ---           | ---              | ---     | ---    | ---       | :---:  |
-| [25Q1.1](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished){target="_blank"} | 08/01/2024 | 25.1.1 | QAA |  | ✅ |
-| [25Q1.0](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished){target="_blank"} | 08/01/2024 | 25.1.0 | C | [25Q1.0.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-25Q1.0.iso){target="_blank"} | ✅ |
-| [24Q2.2](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished){target="_blank"} | 08/01/2024 | 24.2.2 | CS | [24Q2.2.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-24Q2.2.iso){target="_blank"} | ✅ |
-| [24Q2.1](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished){target="_blank"} | 08/01/2024 | 24.2.1 | C |  | ✅ |
-| [24Q2.1](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished){target="_blank"} | 08/01/2024 | 24.2.1 | C |  | ✅ |
-| [24Q2.0](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished){target="_blank"} | 08/01/2024 | 24.2.0 | C | [24Q2.0.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-24Q2.0.iso){target="_blank"} | ✅ |
-| [24Q1.0](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished){target="_blank"} | 08/01/2024 | 24.1.0 | C | [24Q1.0.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-24Q1.0.iso){target="_blank"} | ✅ |
-| [23Q4.1](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished){target="_blank"} | 08/01/2024 | 23.4.1 | C |  | ✅ |
-| [23Q4.0](https://facumoyanosmf.github.io/mkdocs-prueba/latest/23Q4-0) | 28/12/2023 | 23.4.0 | C	| [23Q4-0.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-23Q4.0.iso) | :white_check_mark:|
+| [23Q4.0](https://facumoyanosmf.github.io/mkdocs-prueba/latest/23Q4-0) | 28/12/2023 | 23.4.0 | QAA | [23Q4-0.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-23Q4.0.iso) | :white_check_mark:|
 | [23Q3.4](https://facumoyanosmf.github.io/mkdocs-prueba/latest/23Q3-4) | 05/12/2023 | 23.3.4 | C | | :white_check_mark:|
 | [23Q3.3](https://facumoyanosmf.github.io/mkdocs-prueba/latest/23Q3-3) | 30/11/2023 | 23.3.3 | C | | :white_check_mark:|
 | [23Q3.2](https://facumoyanosmf.github.io/mkdocs-prueba/latest/23Q3-2) | 10/11/2023 | 23.3.2 | C	| | :white_check_mark:|
@@ -179,7 +171,7 @@ PRODUCTS
 | [22Q1.2](https://facumoyanosmf.github.io/mkdocs-prueba/latest/22Q1-2) | 25/05/2022 | 22.1.2 | C   | | |
 | [22Q1.1](https://facumoyanosmf.github.io/mkdocs-prueba/latest/22Q1-1) | 11/05/2022 | 22.1.1 | C   | | |
 | [22Q1.0](https://facumoyanosmf.github.io/mkdocs-prueba/latest/22Q1-0) | 01/03/2022 | 22.1.0 | C   | | |
-| [21Q4.9](https://facumoyanosmf.github.io/mkdocs-prueba/latest/21Q4-9) | 04/01/2023 | 21.4.9 | C   | | |
+| [21Q4.9](https://facumoyanosmf.github.io/mkdocs-prueba/latest/21Q4-9) | 04/01/2023 | 21.4.9 | CS  | | |
 | [21Q4.8](https://facumoyanosmf.github.io/mkdocs-prueba/latest/21Q4-8) | 12/08/2022 | 21.4.8 | C   | | |
 | [21Q4.7](https://facumoyanosmf.github.io/mkdocs-prueba/latest/21Q4-7) | 05/08/2022 | 21.4.7 | C   | | |
 | [21Q4.6](https://facumoyanosmf.github.io/mkdocs-prueba/latest/21Q4-6) | 21/06/2022 | 21.4.6 | C   | | |
