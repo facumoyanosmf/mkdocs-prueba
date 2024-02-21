@@ -135,7 +135,8 @@ PRODUCTS
 
 | Release notes | Publication date | Version | Status | ISO Image | GitHub |
 | ---           | ---              | ---     | ---    | ---       | :---:  |
-| [25Q1.0](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished){target="_blank"} | 08/01/2024 | 25.1.0 | QAA | [25Q1.0.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-25Q1.0.iso){target="_blank"} | ✅ |
+| [25Q1.1](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished){target="_blank"} | 08/01/2024 | 25.1.1 | QAA |  | ✅ |
+| [25Q1.0](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished){target="_blank"} | 08/01/2024 | 25.1.0 | C | [25Q1.0.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-25Q1.0.iso){target="_blank"} | ✅ |
 | [24Q2.2](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished){target="_blank"} | 08/01/2024 | 24.2.2 | CS | [24Q2.2.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-24Q2.2.iso){target="_blank"} | ✅ |
 | [24Q2.1](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished){target="_blank"} | 08/01/2024 | 24.2.1 | C |  | ✅ |
 | [24Q2.1](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished){target="_blank"} | 08/01/2024 | 24.2.1 | C |  | ✅ |
