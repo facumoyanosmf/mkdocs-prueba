@@ -1,0 +1,186 @@
+import java.text.SimpleDateFormat
+
+def updateLines(lines, tableLine, formattedVersion, isoURL, actualStatus, newStatus) {
+    lines[tableLine + 2] = lines[tableLine + 2].replace(actualStatus, newStatus)
+    lines.add(tableLine + 2, "| [" + formattedVersion + "](" + HTML_URL + "){target=\"_blank\"} | " + PUBLISHED_DATE + " | " + NAME_VERSION + " | QAA | " + isoURL + " | ✅ |")
+        
+    writeFile file: MKDOCS_FILE_PATH, text: lines.join('\n')
+}
+
+pipeline {
+    agent any
+
+    environment {
+        GITHUB_API_TOKEN = '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' // Guardarlo en jenkins credentials
+        GIT_USERNAME = 'facumoyanosmf'
+        GITHUB_REPO = 'facumoyanosmf/mkdocs-prueba'
+        MKDOCS_FILE_PATH = 'overview.md'
+        HTML_URL = ''
+        NAME_VERSION = ''
+        PUBLISHED_DATE = ''
+        ISRELEASE = 'true'
+        FORMAT_DATE = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+    }
+
+    stages {
+        stage('Checkout repo') {
+            steps {
+                script {
+                    try {
+                        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/facumoyanosmf/mkdocs-prueba']])
+
+                        sh """
+                            git config --global user.email ${GIT_USERNAME}@users.noreply.github.com
+                            git config --global user.name ${GIT_USERNAME}
+                            git checkout main
+                            git pull origin main
+                        """
+
+                        currentBuild.result = 'SUCCESS'
+                    } catch (Exception e) {
+                        echo "Error al clonar el repositorio: ${e}"
+                        currentBuild.result = 'FAILED'
+                        error("Failed to get repository")
+                    }
+                }
+            }
+        }
+        stage('Get New Release Changelog') {
+            when {
+                expression {
+                    currentBuild.result == 'SUCCESS'
+                }
+            }
+            steps {
+                script {
+                    try {
+                        def githubApiUrl = "https://api.github.com/repos/${GITHUB_REPO}/releases/latest"
+                        def fetchResult = sh(script: "curl -L -H 'Accept: application/vnd.github+json' -H 'Authorization: Bearer ${GITHUB_API_TOKEN}' -H 'X-GitHub-Api-Version: 2022-11-28' ${githubApiUrl}", returnStdout: true).trim()
+
+                        echo "Fetch result:"
+                        echo "${fetchResult}"
+
+                        def json = new groovy.json.JsonSlurper().parseText(fetchResult)
+
+                        def parsed = new SimpleDateFormat(FORMAT_DATE).parse(json.published_at)
+                        def desiredFormat = new SimpleDateFormat("dd/MM/yyyy")
+                        def formattedDate = desiredFormat.format(parsed)
+
+
+                        HTML_URL = json.html_url
+                        NAME_VERSION = json.name
+                        PUBLISHED_DATE = formattedDate
+
+                        echo "Date format: ${PUBLISHED_DATE}"
+                        
+                        currentBuild.result = 'SUCCESS'
+                    } catch (Exception e) {
+                        echo "Error to get new release: ${e}"
+                        currentBuild.result = 'FAILED'
+                        error("Failed to get new release")
+                    }
+                }
+            }
+        }
+
+        stage('Read File and Update Table') {
+            when {
+                expression {
+                    currentBuild.result == 'SUCCESS'
+                }
+            }
+            steps {
+                script {
+                    try {
+                        dir('docs/versions') {
+                            def fileContent = readFile MKDOCS_FILE_PATH
+                            echo "---------------- File content: ${fileContent}----------------"
+                            echo "----------------HTML URL: ${HTML_URL}----------------"
+                            echo "----------------Name and version: ${NAME_VERSION}----------------"
+
+                            def lines = fileContent.readLines()
+                            echo "----------------File lines: ${lines}----------------"
+
+                            def tableLine = lines.findIndexOf { it.startsWith("| Release notes | Publication date | Version | Status | ISO Image | GitHub |") }
+                            echo "---------------- Table lines: ${tableLine}----------------"
+
+                            def formattedVersion = NAME_VERSION.replaceFirst("\\.", "Q")
+                            echo "---------------- Format version: ${formattedVersion}----------------"
+
+                            def versionPattern = /\[(\d{2}Q\d{1,2}\.\d+)\]/  // Patrón para buscar versiones como [23Q4.1]
+
+                            def versions = []
+
+                            lines.each { line ->
+                                def matcher = (line =~ versionPattern)
+                                if (matcher.find()) {
+                                    versions.add(matcher.group(1))
+                                }
+                            }
+                            
+                            echo "---------------- Versions list: ${versions}----------------"
+                            
+                            def lastVersion = versions.max { it }
+                            echo "---------------- Last version: ${lastVersion}----------------"
+
+                            def lastVersionYear = lastVersion.take(2).toInteger()
+                            echo "---------------- Year of the last version: ${lastVersionYear}----------------"
+
+                            def currentVersionYear = NAME_VERSION.take(2).toInteger()
+                            echo "---------------- Year of the current version: ${currentVersionYear}----------------"
+
+                            def lastIndexWithCS = lines.reverse().findIndexOf { it.contains("CS") }
+
+                            if (lastIndexWithCS != -1) {
+                                lastIndexWithCS = lines.size() - 1 - lastIndexWithCS
+                                echo "Last index with CS: ${lastIndexWithCS}"
+                            } else {
+                                echo "Not found index with CS"
+                            }
+
+
+                            def isoURL = "[${formattedVersion}.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-" + formattedVersion + ".iso){target=\"_blank\"}"
+
+                            echo "----------------ISO URL: ${isoURL}----------------"
+
+                            if (tableLine != -1) {
+                               if(ISRELEASE == 'true'){
+                                    if(currentVersionYear > lastVersionYear){
+                                        echo "----------------The current version year is higher than the last version.----------------"
+
+                                        lines[lastIndexWithCS] = lines[lastIndexWithCS].replace("CS", "C")
+                                        updateLines(lines, tableLine, formattedVersion, isoURL, "QAA", "CS")
+                                    } else {
+                                        echo "----------------The current version year is not higher than the last version.----------------"
+                                        updateLines(lines, tableLine, formattedVersion, isoURL, "QAA", "C")
+                                    }
+                               }
+                               if(ISRELEASE == 'false'){
+                                    updateLines(lines, tableLine, formattedVersion, "", "QAA", "C")
+                                                                   }
+                            } else {
+                                echo "---------------- Table line not found.----------------"
+                                currentBuild.result = 'FAILED'
+                            }
+                            
+
+                            sh """  
+                                git status
+                                git add overview.md
+                                git commit -m "Publish new core version: ${NAME_VERSION} 📄"  
+                                git remote set-url origin https://${GITHUB_API_TOKEN}@github.com/${GITHUB_REPO}.git
+                                git push origin main
+                            """
+                        }
+
+                        currentBuild.result = 'SUCCESS'
+                    } catch (Exception e) {
+                        echo "Error to update table: ${e}"
+                        currentBuild.result = 'FAILED'
+                        error("Failed to update table")
+                    }
+                }
+            }
+        }
+    }
+}
