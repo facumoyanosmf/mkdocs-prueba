@@ -12,13 +12,9 @@ tags:
 
 ## Overview
 
-| Version   | Publication Date 	| From Core | To Core| Status | GitHub|
+| Version | Publication Date | From Core | To Core| Status | GitHub |
 | --- 		| ---           | ---    | ---    | --- | :---:             |
-| [1.9.0](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/1.9.0){target="_blank"} | 05/03/2024 | 22.1.0 | 23.4.2 | CS | :white_check_mark: |
-| [1.8.0](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/1.8.0){target="_blank"} | 05/03/2024 | 22.1.0 | 23.4.2 | C | :white_check_mark: |
-| [1.8.0](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/1.8.0){target="_blank"} | 05/03/2024 | 22.1.0 | 23.4.2 | C | :white_check_mark: |
-| [1.7.0](https://github.com/etendosoftware/com.etendoerp.sales.extensions/releases/tag/1.7.0){target="_blank"} | 29/12/2023 | 22.1.0 | 23.4.2 | C | :white_check_mark: |
-| [1.7.0](#170) 	| 29/12/2023 	| 22.1.0 | 23.4.x | C	| :white_check_mark:|
+| [1.7.0](#170) 	| 29/12/2023 	| 22.1.0 | 23.4.x | CS	| :white_check_mark:|
 | [1.6.0](#160) 	| 29/09/2023 	| 22.1.0 | 23.3.x | C 	| :white_check_mark:|
 | [1.5.2](#152) 	| 16/07/2023 	| 22.1.0 | 23.2.8 | C   | :white_check_mark:|
 | [1.5.1](#151) 	| 04/07/2023 	| 22.1.0 | 23.2.x | C 	| :white_check_mark:|

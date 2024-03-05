@@ -12,7 +12,7 @@ tags:
 
 ## Overview
 
-| Version | Publication Date | From Core | To Core| Status | GitHub|
+| Version | Publication Date | From Core | To Core| Status | GitHub |
 | --- | --- | --- | --- | :---: | :---: |
 | [1.3.0](#130) | 29/12/2023 | 22.1.0 | 23.4.x | CS  | :white_check_mark:|
 | [1.2.1](#121) | 15/11/2023 | 22.1.0 | 23.3.x | C   | :white_check_mark:|
