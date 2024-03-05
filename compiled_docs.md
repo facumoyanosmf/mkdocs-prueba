@@ -521,7 +521,7 @@ Article URL: https://etendo.software
 ## Article Content: 
 #### Overview
 
-| Version | Publication Date | From Core | To Core | Status | GitHub |
+| Version | Publication Date | From Core | To Core| Status | GitHub |
 | --- | --- | --- | --- | --- | :---: |
 | [1.13.1](#1201) | 27/02/2024 | 23.2.0 | 23.4.x | CS | :white_check_mark: |
 | [1.12.0](#1200) | 29/12/2023 | 23.2.0 | 23.4.x | C  | :white_check_mark: |
@@ -578,7 +578,7 @@ Article URL: https://etendo.software
 ## Article Content: 
 #### Overview
 
-| Version | Publication Date | From Core | To Core| Status | GitHub|
+| Version | Publication Date | From Core | To Core| Status | GitHub |
 | --- | --- | --- | --- | --- | :---: |
 | [1.5.0](#150) | 29/12/2023 | 21.4.0 | 23.4.x | CS | :white_check_mark:	|
 | [1.4.0](#140) | 29/09/2023 | 21.4.0 | 23.3.x | C  | :white_check_mark:	|
@@ -617,7 +617,7 @@ Article URL: https://etendo.software
 ## Article Content: 
 #### Overview
 
-| Version | Publication Date | From Core | To Core| Status | GitHub|
+| Version | Publication Date | From Core | To Core| Status | GitHub |
 | --- | --- | --- | --- | :---: | :---: |
 | [1.5.0](#150) | 29/12/2023 | 22.1.0 | 23.4.x | CS  | :white_check_mark:	|
 | [1.4.0](#140) | 29/09/2023 | 22.1.0 | 23.3.x | C   | :white_check_mark:	|
@@ -650,13 +650,9 @@ Article URL: https://etendo.software
 ## Article Content: 
 #### Overview
 
-| Version   | Publication Date 	| From Core | To Core| Status | GitHub|
+| Version | Publication Date | From Core | To Core| Status | GitHub |
 | --- 		| ---           | ---    | ---    | --- | :---:             |
-| [1.9.0](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/1.9.0){target="_blank"} | 05/03/2024 | 22.1.0 | 23.4.2 | CS | :white_check_mark: |
-| [1.8.0](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/1.8.0){target="_blank"} | 05/03/2024 | 22.1.0 | 23.4.2 | C | :white_check_mark: |
-| [1.8.0](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/1.8.0){target="_blank"} | 05/03/2024 | 22.1.0 | 23.4.2 | C | :white_check_mark: |
-| [1.7.0](https://github.com/etendosoftware/com.etendoerp.sales.extensions/releases/tag/1.7.0){target="_blank"} | 29/12/2023 | 22.1.0 | 23.4.2 | C | :white_check_mark: |
-| [1.7.0](#170) 	| 29/12/2023 	| 22.1.0 | 23.4.x | C	| :white_check_mark:|
+| [1.7.0](#170) 	| 29/12/2023 	| 22.1.0 | 23.4.x | CS	| :white_check_mark:|
 | [1.6.0](#160) 	| 29/09/2023 	| 22.1.0 | 23.3.x | C 	| :white_check_mark:|
 | [1.5.2](#152) 	| 16/07/2023 	| 22.1.0 | 23.2.8 | C   | :white_check_mark:|
 | [1.5.1](#151) 	| 04/07/2023 	| 22.1.0 | 23.2.x | C 	| :white_check_mark:|
@@ -697,7 +693,7 @@ Article URL: https://etendo.software
 ## Article Content: 
 #### Overview
 
-| Version | Publication Date | From Core | To Core| Status | GitHub|
+| Version | Publication Date | From Core | To Core| Status | GitHub |
 | --- | --- | --- | --- | :---: | :---: |
 | [1.13.3](#1133)   | 27/02/2024 | 23.1.4 | 23.4.x | CS | :white_check_mark:    |
 | [1.13.2](#1132)   | 14/02/2024 | 23.1.4 | 23.4.x | C  | :white_check_mark:    |
@@ -959,7 +955,7 @@ Ahora se visualizará un mensaje de error con el siguiente texto:
 ## Article Content: 
 #### Overview
 
-| Version   | Publication Date 	| From Core | To Core| Status | GitHub|
+| Version | Publication Date | From Core | To Core| Status | GitHub |
 | --- 		| ---           | ---    | ---    | --- | :---:             |
 | [1.0.0](#100) 	| 19/02/2024 	| 22.1.0 | 24.1.0 | CS	| :white_check_mark:|
 
@@ -976,7 +972,7 @@ Ahora se visualizará un mensaje de error con el siguiente texto:
 ## Article Content: 
 #### Overview
 
-| Version | Publication Date | From Core | To Core| Status | GitHub|
+| Version | Publication Date | From Core | To Core| Status | GitHub |
 | --- | --- | --- | --- | :---: | :---: |
 | [1.3.0](#130) | 29/12/2023 | 22.1.0 | 23.4.x | CS  | :white_check_mark:|
 | [1.2.1](#121) | 15/11/2023 | 22.1.0 | 23.3.x | C   | :white_check_mark:|
