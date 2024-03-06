@@ -695,7 +695,8 @@ Article URL: https://etendo.software
 
 | Version | Publication Date | From Core | To Core| Status | GitHub |
 | --- | --- | --- | --- | :---: | :---: |
-| [1.8.0](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/1.8.0){target="_blank"} | 05/03/2024 | 23.1.4 | 24.1.x | CS | :white_check_mark: |
+| [1.8.2](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/1.8.2){target="_blank"} | 06/03/2024 | 23.1.4 | 24.1.x | CS | :white_check_mark: |
+| [1.8.0](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/1.8.0){target="_blank"} | 05/03/2024 | 23.1.4 | 24.1.x | C | :white_check_mark: |
 | [1.13.3](#1133)   | 27/02/2024 | 23.1.4 | 23.4.x | C | :white_check_mark:    |
 | [1.13.2](#1132)   | 14/02/2024 | 23.1.4 | 23.4.x | C  | :white_check_mark:    |
 | [1.13.1](#1131)   | 10/01/2024 | 23.1.4 | 23.4.x | C  | :white_check_mark:    |
