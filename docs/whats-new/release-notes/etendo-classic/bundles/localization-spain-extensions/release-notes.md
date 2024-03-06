@@ -13,7 +13,8 @@ tags:
 
 | Versión | Fecha de Publicación | Desde Core | Hasta Core | Estado | GitHub|
 | :--- | :--- | :--- | :--- | :---: | :---: |
-| [1.9.0](#190) | 06/02/2024 | 22.4.3 | 23.4.x | CS | :white_check_mark:|
+| [1.9.1](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/1.9.1){target="_blank"} | 06/03/2024 | 22.4.3 | 24.1.0 | CS | :white_check_mark: |
+| [1.9.0](#190) | 06/02/2024 | 22.4.3 | 23.4.x | C | :white_check_mark:|
 | [1.8.0](#180) | 26/01/2024 | 22.4.3 | 23.4.x | C  | :white_check_mark:|
 | [1.7.0](#170) | 24/01/2024 | 22.4.3 | 23.4.x | C  | :white_check_mark:|
 | [1.6.0](#160) | 29/12/2023 | 22.4.3 | 23.4.x | C  | :white_check_mark:|
@@ -145,4 +146,3 @@ Ahora se visualizará un mensaje de error con el siguiente texto:
 
 -   En Inglés: *“The value of the Tax ID field is empty for the business partner with Search Key ...”*
 -   En Castellano: *"El valor del campo CIF/NIF se encuentra vacío para el tercero con Identificador ..."*
-
