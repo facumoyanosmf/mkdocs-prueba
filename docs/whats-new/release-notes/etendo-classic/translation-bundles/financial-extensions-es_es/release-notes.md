@@ -16,7 +16,7 @@ tags:
 
 ## Overview
 
-|	 Version	| Publication Date | Compatibility With Financial Extensions | Status |		   GitHub		 |
+| Version | Publication Date | Compatibility With Financial Extensions | Status |		   GitHub		 |
 |	   ---		|		---		   |				   ---					 | :----: |		   :----:		 |
 | [1.5.0](#150) |	 23/01/2024	   |			 [1.13.1, latest]			 |	 CS	  |  :white_check_mark:  |
 | [1.4.3](#143) |	 12/01/2024    |			 [1.13.1, latest]			 |	 C	  |  :white_check_mark:  |
