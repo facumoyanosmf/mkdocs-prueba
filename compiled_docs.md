@@ -808,12 +808,11 @@ Article URL: https://etendo.software
 ## Article URL: 
  https://facumoyanosmf.github.io/mkdocs-prueba/latest/whats-new/release-notes/etendo-classic/bundles/localization-spain-extensions/release-notes
 ## Article Content: 
-#### Introducci?n
+#### Introducción
 
-| Versi?n | Fecha de Publicaci?n | Desde Core | Hasta Core | Estado | GitHub|
+| Versión | Fecha de Publicación | Desde Core | Hasta Core | Estado | GitHub|
 | :--- | :--- | :--- | :--- | :---: | :---: |
-| [1.9.1](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/1.9.1){target="_blank"} | 06/03/2024 | 22.4.3 | 24.1.0 | CS | :white_check_mark: |
-| [1.9.0](#190) | 06/02/2024 | 22.4.3 | 23.4.x | C | :white_check_mark:|
+| [1.9.0](#190) | 06/02/2024 | 22.4.3 | 23.4.x | CS | :white_check_mark:|
 | [1.8.0](#180) | 26/01/2024 | 22.4.3 | 23.4.x | C  | :white_check_mark:|
 | [1.7.0](#170) | 24/01/2024 | 22.4.3 | 23.4.x | C  | :white_check_mark:|
 | [1.6.0](#160) | 29/12/2023 | 22.4.3 | 23.4.x | C  | :white_check_mark:|
@@ -837,8 +836,8 @@ Article URL: https://etendo.software
 #### Versiones Disponibles
 
 ##### 1.9.0
-- Par?metros modelo 347 - Rangos nuevos 2023 \
-Se asociaron nuevos par?metros de impuestos a los siguientes rangos:
+- Parámetros modelo 347 - Rangos nuevos 2023 \
+Se asociaron nuevos parámetros de impuestos a los siguientes rangos:
   - Adquisiciones IVA 0% 
   - Entregas IVA 0%  
   - Entregas IVA 0+RE 0+0% 
@@ -853,41 +852,41 @@ Se asociaron nuevos par?metros de impuestos a los siguientes rangos:
   - Entregas IVA+RE 5+0.62% (+5%) 
   - Servicios Prestados 0% 
 ##### 1.8.0
-- Nuevo dise?o de registro - Modelo de impuestos 390 - Versi?n 2023 \
-Se agregaron al par?metro "Recargo de Equivalencia" del grupo "IVA Devengado" los impuestos siguientes, declarados en las casillas que se explican a continuaci?n:
+- Nuevo diseño de registro - Modelo de impuestos 390 - Versión 2023 \
+Se agregaron al parámetro "Recargo de Equivalencia" del grupo "IVA Devengado" los impuestos siguientes, declarados en las casillas que se explican a continuación:
     - Recargo de equivalencia - Tipo 0% - Base imponible [663]
     - Recargo de equivalencia - Tipo 0% - Cuota [664]
     - Recargo de equivalencia - Tipo 0,62% - Base imponible [665]
     - Recargo de equivalencia - Tipo 0,62% - Cuota [666]
 ##### 1.7.0
-- [EE-301](https://github.com/etendosoftware/com.etendoerp.localization.spain.extensions/issues/18) Se agreg? un nuevo estado 'No Declarable en SII' para facturas de venta que tengan todos sus productos relacionados a impuestos configurados como 'No Declarables en SII'.
-- [EE-796](https://github.com/etendosoftware/com.etendoerp.localization.spain.extensions/issues/19) Se corrigi? el error en el que la p?gina T303DID00 no se genera de forma correcta para el 303 del ?ltimo periodo.
-- Se a?adi? el nuevo dise?o de registro para el Modelo de Declaraci?n de Impuestos 190, versi?n 2023.
-- Se a?adi? la oficina impositiva de Bizkaia en la configuraci?n del SII para facturas recibidas.
+- [EE-301](https://github.com/etendosoftware/com.etendoerp.localization.spain.extensions/issues/18) Se agregó un nuevo estado 'No Declarable en SII' para facturas de venta que tengan todos sus productos relacionados a impuestos configurados como 'No Declarables en SII'.
+- [EE-796](https://github.com/etendosoftware/com.etendoerp.localization.spain.extensions/issues/19) Se corrigió el error en el que la página T303DID00 no se genera de forma correcta para el 303 del último periodo.
+- Se añadió el nuevo diseño de registro para el Modelo de Declaración de Impuestos 190, versión 2023.
+- Se añadió la oficina impositiva de Bizkaia en la configuración del SII para facturas recibidas.
 ##### 1.6.0
-- Se actualiz? la compatibilidad de Core incluyendo hasta 23.4.x
-- [EE-779](https://github.com/etendosoftware/com.etendoerp.localization.spain.extensions/issues/16){target="\_blank"} Se corrigi? error al crear un libro de facturas simplificado con un socio comercial sin CIF
+- Se actualizó la compatibilidad de Core incluyendo hasta 23.4.x
+- [EE-779](https://github.com/etendosoftware/com.etendoerp.localization.spain.extensions/issues/16){target="\_blank"} Se corrigió error al crear un libro de facturas simplificado con un socio comercial sin CIF
 ##### 1.5.2
-- [EE-741](https://github.com/etendosoftware/com.etendoerp.localization.spain.extensions/issues/9){target="\_blank"} Se a?adi? la traducci?n de la ventana 'Valued Stock Report'
-- [EE-728](https://github.com/etendosoftware/com.etendoerp.localization.spain.extensions/issues/8){target="\_blank"} Se agreg? la traducci?n faltante para la ventana 'Pending Goods Receipts'
-- [EE-736](https://github.com/etendosoftware/com.etendoerp.localization.spain.extensions/issues/7){target="\_blank"} Se corrigi? la validaci?n 'Acogida al SII' de la configuraci?n SII
+- [EE-741](https://github.com/etendosoftware/com.etendoerp.localization.spain.extensions/issues/9){target="\_blank"} Se añadió la traducción de la ventana 'Valued Stock Report'
+- [EE-728](https://github.com/etendosoftware/com.etendoerp.localization.spain.extensions/issues/8){target="\_blank"} Se agregó la traducción faltante para la ventana 'Pending Goods Receipts'
+- [EE-736](https://github.com/etendosoftware/com.etendoerp.localization.spain.extensions/issues/7){target="\_blank"} Se corrigió la validación 'Acogida al SII' de la configuración SII
 ##### 1.5.1
-- [EE-730](https://github.com/etendosoftware/com.etendoerp.localization.spain.extensions/issues/5){target="\_blank"} Se corrigi? una traducci?n err?nea en un campo de la ventana 'Producto'
-- [EE-729](https://github.com/etendosoftware/com.etendoerp.localization.spain.extensions/issues/4){target="\_blank"} Se a?adi? una traducci?n faltante para las opciones que aparecen al hacer click derecho sobre las columnas de una ventana
-- [EE-725](https://github.com/etendosoftware/com.etendoerp.localization.spain.extensions/issues/3){target="\_blank"} Se a?adi? una traducci?n faltante para la ventana 'Marca'
+- [EE-730](https://github.com/etendosoftware/com.etendoerp.localization.spain.extensions/issues/5){target="\_blank"} Se corrigió una traducción errónea en un campo de la ventana 'Producto'
+- [EE-729](https://github.com/etendosoftware/com.etendoerp.localization.spain.extensions/issues/4){target="\_blank"} Se añadió una traducción faltante para las opciones que aparecen al hacer click derecho sobre las columnas de una ventana
+- [EE-725](https://github.com/etendosoftware/com.etendoerp.localization.spain.extensions/issues/3){target="\_blank"} Se añadió una traducción faltante para la ventana 'Marca'
 ##### 1.5.0
-- Se actualiz? la compatibilidad de Core incluyendo hasta 23.3.x
+- Se actualizó la compatibilidad de Core incluyendo hasta 23.3.x
 ##### 1.4.1
-- [EE-720](https://github.com/etendosoftware/com.etendoerp.localization.spain.extensions/issues/2){target="\_blank"} Se renombr? a min?sculas el java package del modulo `org.openbravo.localization.spain.referencedata.translation.eses` 
+- [EE-720](https://github.com/etendosoftware/com.etendoerp.localization.spain.extensions/issues/2){target="\_blank"} Se renombró a minúsculas el java package del modulo `org.openbravo.localization.spain.referencedata.translation.eses` 
 ##### 1.4.0
-- Se actualiz? la compatibilidad de Core incluyendo hasta 23.2.x
+- Se actualizó la compatibilidad de Core incluyendo hasta 23.2.x
 ##### 1.3.0
 - Se publicaron todos los paquetes en GitHub
 ##### 1.2.1
-- Se resolvi? problemas funcionales de la localizaci?n espa?ola utilizando las dependencias en formato JAR.
+- Se resolvió problemas funcionales de la localización española utilizando las dependencias en formato JAR.
 
 ##### 1.2.0
-- Se a?adieron nuevos rangos de impuestos:
+- Se añadieron nuevos rangos de impuestos:
 	Adquisiciones IVA 0%
   Adquisiciones IVA 0+RE 0+0%
   Adquisiciones IVA+RE 21+1.75%
@@ -900,26 +899,26 @@ Se agregaron al par?metro "Recargo de Equivalencia" del grupo "IVA Devengado" lo
   Entregas IVA+RE 5+0.62% 
   Servicios prestados 0%
   
-  (**)Al tratarse de impuestos temporales, el campo "v?lido desde" tiene indicada la fecha "01-01-9999". Para que estos nuevos rangos puedan ser utilizados tendr? que editarse la misma y poner una fecha real (Ej. 01-01-2023).
+  (**)Al tratarse de impuestos temporales, el campo "válido desde" tiene indicada la fecha "01-01-9999". Para que estos nuevos rangos puedan ser utilizados tendrá que editarse la misma y poner una fecha real (Ej. 01-01-2023).
   
-- Se incluyen los par?metros del modelo 303 y modelo 349 a los nuevos rangos temporales.
+- Se incluyen los parámetros del modelo 303 y modelo 349 a los nuevos rangos temporales.
 
-- Se actualiza el modelo 303, en funci?n del nuevo dise?o de registro publicado por la [AEAT](https://sede.agenciatributaria.gob.es/Sede/ayuda/disenos-registro/modelos-300-399.html)
+- Se actualiza el modelo 303, en función del nuevo diseño de registro publicado por la [AEAT](https://sede.agenciatributaria.gob.es/Sede/ayuda/disenos-registro/modelos-300-399.html)
 
-- Actualizaci?n del m?dulo "ep?grafes"
+- Actualización del módulo "epígrafes"
 
 ##### 1.1.0
-- Se actualiz? la compatibilidad de Core desde 22.4.3 a 22.4.x
-- Se a?adi? la dependencia de la traducci?n del m?dulo de Default Jobs
+- Se actualizó la compatibilidad de Core desde 22.4.3 a 22.4.x
+- Se añadió la dependencia de la traducción del módulo de Default Jobs
 
 ##### 1.0.5
-- Se actualiz? la compatibilidad de Core a 22.4.x
-- Se elimin? la dependencia de Cash VAT Management
-- Se elimin? la dependencia del modulo JAX-WS-JAVA API
+- Se actualizó la compatibilidad de Core a 22.4.x
+- Se eliminó la dependencia de Cash VAT Management
+- Se eliminó la dependencia del modulo JAX-WS-JAVA API
 
 ##### 1.0.4
-- Se eliminaron los m?dulos de Facturacion Electr?nica
-- Se a?adi? la traducci?n de Libro de Facturas 
+- Se eliminaron los módulos de Facturacion Electrónica
+- Se añadió la traducción de Libro de Facturas 
 
 
 ##### 1.0.2
@@ -930,21 +929,22 @@ Version actualizada para ser compatible con Etendo 22Q2
 
 ####### Errores Solucionados
 
-EE-171 - ?SII versi?n 1.9.213100 - Se env?an incorrectamente las facturas con NOI
+EE-171 -  SII versión 1.9.213100 - Se envían incorrectamente las facturas con NOI
 
 **org.openbravo.module.sii**
 
 En facturas proveedor con proveedores extranjeros (NOI) se estaba cortando a 9 caracteres el taxid lo que provocaba que se enviasen mal al SII las facturas y que luego Etendo diese error "Factura no encontrada".
 
-####### EE-115 - **Intrastat ?Null Pointer Exception? cuando el campo TaxId es vac?o**
+####### EE-115 - **Intrastat “Null Pointer Exception” cuando el campo TaxId es vacío**
 
 **org.openbravo.module.intrastat**
 
-Al intentar generar el archivo Intrastat, si uno de los terceros incluidos en el fichero no ten?a informaci?n en el campo TaxId, se mostraba un error ?null pointer exception? y el archivo no se generaba.  
-Ahora se visualizar? un mensaje de error con el siguiente texto:
+Al intentar generar el archivo Intrastat, si uno de los terceros incluidos en el fichero no tenía información en el campo TaxId, se mostraba un error “null pointer exception” y el archivo no se generaba.  
+Ahora se visualizará un mensaje de error con el siguiente texto:
 
--   En Ingl?s: *?The value of the Tax ID field is empty for the business partner with Search Key ...?*
--   En Castellano: *"El valor del campo CIF/NIF se encuentra vac?o para el tercero con Identificador ..."*
+-   En Inglés: *“The value of the Tax ID field is empty for the business partner with Search Key ...”*
+-   En Castellano: *"El valor del campo CIF/NIF se encuentra vacío para el tercero con Identificador ..."*
+
 
 ==ARTICLE_END==
 ==ARTICLE_START==
