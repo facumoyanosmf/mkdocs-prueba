@@ -1096,7 +1096,8 @@ Ahora se visualizará un mensaje de error con el siguiente texto:
 
 | Version | Publication Date | Compatibility With Financial Extensions | Status |		   GitHub		 |
 |	   ---		|		---		   |				   ---					 | :----: |		   :----:		 |
-| [1.5.0](#150) |	 23/01/2024	   |			 [1.13.1, latest]			 |	 CS	  |  :white_check_mark:  |
+| [1.9.2](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/1.9.2){target="_blank"} | 06/03/2024 | [1.0.0, latest] | CS | :white_check_mark: |
+| [1.5.0](#150) |	 23/01/2024	   |			 [1.13.1, latest]			 |	 C	  |  :white_check_mark:  |
 | [1.4.3](#143) |	 12/01/2024    |			 [1.13.1, latest]			 |	 C	  |  :white_check_mark:  |
 | [1.4.2](#142) |	 07/12/2023    |			 [1.11.3, 1.13.0]			 |	 C	  |  :white_check_mark:  |
 | [1.4.1](#141) |	 06/12/2023    |			 [1.11.2, 1.11.2]			 |	 C	  |  :white_check_mark:  |
