@@ -32,42 +32,7 @@ HOME
 ## Article URL: 
  https://facumoyanosmf.github.io/mkdocs-prueba/latest/about
 ## Article Content: 
-### Welcome to MkDocs
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
-ABOUT 24234
-
-asd
-#### Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-#### Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-
-
-#### Overview
-
-| Version | Publication Date | Status |
-| --- | --- | --- |
-| [23.1](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished){target="_blank"} | 08/01/2024 | CS |
-| [23.1](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/pubished) | 08/01/2024 | C |
-| 1.3.0 | 12/12/2023 | C  |
-| 1.2.2 | 20/10/2023 | C  |
-| 1.2.1 | 18/10/2023 | C  |
-| 1.2.0 | 17/10/2023 | C  |
-| 1.1.3 | 31/08/2023 | C  |
-| 1.1.2 | 31/07/2023 | C  |
-| 1.1.1 | 10/07/2023 | C  |
-| 1.1.0 | 30/05/2023 | C  |
-| 1.0.7 | 05/04/2023 | C  |
 ==ARTICLE_END==
 ==ARTICLE_START==
 # Article Title: Contact
@@ -75,26 +40,6 @@ asd
 ## Article URL: 
  https://facumoyanosmf.github.io/mkdocs-prueba/latest/contact
 ## Article Content: 
-### Welcome to MkDocs
-
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-CONTACT 234
-
-
-#### Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-#### Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
 
 ==ARTICLE_END==
 ==ARTICLE_START==
@@ -103,26 +48,6 @@ CONTACT 234
 ## Article URL: 
  https://facumoyanosmf.github.io/mkdocs-prueba/latest/products
 ## Article Content: 
-### Welcome to MkDocs
-
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-PRODUCTS
-
-
-#### Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-#### Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
 
 ==ARTICLE_END==
 ==ARTICLE_START==
@@ -375,7 +300,10 @@ Article URL: https://etendo.software
 
 | Release notes | Publication date | Version | Status | ISO Image | GitHub |
 | ---           | ---              | ---     | ---    | ---       | :---:  |
-| [23Q4.2](https://github.com/etendosoftware/etendo_core/releases/tag/23.4.2){target="_blank"} | 26/02/2024 | 23.4.2 | QAA |  | :white_check_mark: |
+| [23Q4.5](https://github.com/etendosoftware/etendo_core/releases/tag/23.4.5){target="_blank"} | 22/03/2024 | 23.4.5 | QAA |  | :white_check_mark: |
+| [23Q4.4](https://github.com/etendosoftware/etendo_core/releases/tag/23.4.4){target="_blank"} | 15/03/2024 | 23.4.4 | C |  | :white_check_mark: |
+| [23Q4.3](https://github.com/etendosoftware/etendo_core/releases/tag/23.4.3){target="_blank"} | 08/03/2024 | 23.4.3 | C |  | :white_check_mark: |
+| [23Q4.2](https://github.com/etendosoftware/etendo_core/releases/tag/23.4.2){target="_blank"} | 26/02/2024 | 23.4.2 | C |  | :white_check_mark: |
 | [23Q4.1](https://github.com/etendosoftware/etendo_core/releases/tag/23.4.1){target="_blank"} | 02/02/2023 | 23.4.1 | C |  | :white_check_mark: |
 | [23Q4.0](https://github.com/etendosoftware/etendo_core/releases/tag/23.4.0){target="_blank"} | 28/12/2023 | 23.4.0 | C | [23Q4.0.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-23Q4.0.iso) | :white_check_mark: |
 | [23Q3.4](https://github.com/etendosoftware/etendo_core/releases/tag/23.3.4){target="_blank"} | 05/12/2023 | 23.3.4 | C |  | :white_check_mark: |
