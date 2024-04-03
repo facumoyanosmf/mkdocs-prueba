@@ -14,7 +14,8 @@ tags:
 
 | Release notes | Publication date | Version | Status | ISO Image | GitHub |
 | ---           | ---              | ---     | ---    | ---       | :---:  |
-| [24Q1.0](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/2.0.0){target="_blank"} | 18/03/2024 | 24.1.0 | QAA | [24Q1.0.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-24Q1.0.iso){target="_blank"} | ✅ |
+| [24Q2.0](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/2.0.0){target="_blank"} | 18/03/2024 | 24.2.0 | QAA | [24Q2.0.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-24Q2.0.iso){target="_blank"} | ✅ |
+| [24Q1.0](https://github.com/facumoyanosmf/mkdocs-prueba/releases/tag/2.0.0){target="_blank"} | 18/03/2024 | 24.1.0 | CS | [24Q1.0.iso](https://etendo-appliances.s3.eu-west-1.amazonaws.com/etendo/iso/etendo-24Q1.0.iso){target="_blank"} | ✅ |
 | [23Q4.5](https://github.com/etendosoftware/etendo_core/releases/tag/23.4.5){target="_blank"} | 22/03/2024 | 23.4.5 | CS |  | :white_check_mark: |
 | [23Q4.4](https://github.com/etendosoftware/etendo_core/releases/tag/23.4.4){target="_blank"} | 15/03/2024 | 23.4.4 | C |  | :white_check_mark: |
 | [23Q4.3](https://github.com/etendosoftware/etendo_core/releases/tag/23.4.3){target="_blank"} | 08/03/2024 | 23.4.3 | C |  | :white_check_mark: |
