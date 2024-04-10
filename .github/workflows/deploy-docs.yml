@@ -1,11 +1,11 @@
 name: Deploy docs
 
 on:
-    push:
-        branches:
-            - main
-    repository_dispatch:
-        types: [deploy-event]
+  push:
+      branches:
+          - main
+  repository_dispatch:
+      types: [deploy-event]
         
 permissions:
     contents: write
