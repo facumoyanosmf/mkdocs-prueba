@@ -3,11 +3,157 @@ site_name: My Docs
 repo_url: https://github.com/facumoyanosmf/mkdocs-prueba
 repo_name: mkdocs-prueba
 site_url: https://facumoyanosmf.github.io/mkdocs-prueba/
+theme:
+  name: material
+  logo: assets/logo.png
+  icon:
+    repo: fontawesome/brands/github
+  font:
+    text: Inter
+  favicon: images/favicon.png
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - navigation.path
+    - navigation.sections
+    - navigation.top
+    - toc.follow
+    - search.suggest
+    - search.share
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+    - content.tooltips
+  language: en
+  palette:
+    # Palette toggle for light mode
+    - scheme: custom
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+extra_css:
+  - stylesheets/extra.css
+exclude_docs: |
+  .*
+
+
+markdown_extensions:
+  - abbr
+  - attr_list
+  - pymdownx.snippets
+  - tables
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - toc:
+      title: In This Page
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+plugins:
+  - search:
+      separator: '[\s\.\-]+'
+      lang:
+        - en
+  - tags
+  - glightbox
+  - rss:
+      abstract_chars_count: 160  # -1 for full content
+      abstract_delimiter: <!-- more -->
+      categories:
+        - tags
+      comments_path: "#__comments"
+      date_from_meta:
+        as_creation: "date"
+        as_update: false
+        datetime_format: "%Y-%m-%d %H:%M"
+        default_timezone: Europe/Paris
+        default_time: "09:30"
+      enabled: true
+      feed_ttl: 1440
+      image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Feed-icon.svg/128px-Feed-icon.svg.png
+      length: 20
+      pretty_print: false
+      match_path: ".*"
+      url_parameters:
+        utm_source: "documentation"
+        utm_medium: "RSS"
+        utm_campaign: "feed-syndication"
+extra:
+  version:
+    provider: mike
+    default: stable
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/etendosoftware
+      name: GitHub
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/etendo-software/
+      name: Linkedin
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/etendo.software/
+      name: Instagram
+
 nav:
   - Home: index.md
   - About: about.md
   - Contact: contact.md
   - Products: products.md
+  - versions: 
+    - Overview: versions/overview.md
+  - What's New:
+    - Overview: whats-new/overview.md
+    - Etendo Release Cycle: whats-new/etendo-release-cycle.md
+    - Roadmap: "https://etendo.software"
+    - Release Notes:
+      - Etendo Classic:
+        - Release Notes: whats-new/release-notes/etendo-classic/release-notes.md
+        - Etendo Gradle Plugin: whats-new/release-notes/etendo-classic/etendo-gradle-plugin.md
+        - Bundles:
+          - Essentials Extensions Bundle: whats-new/release-notes/etendo-classic/bundles/essentials-extensions/release-notes.md
+          - Platform Extensions Bundle: whats-new/release-notes/etendo-classic/bundles/platform-extensions/release-notes.md
+          - Warehouse Extensions Bundle: whats-new/release-notes/etendo-classic/bundles/warehouse-extensions/release-notes.md
+          - Production Extensions Bundle: whats-new/release-notes/etendo-classic/bundles/production-extensions/release-notes.md
+          - Sales Extensions Bundle: whats-new/release-notes/etendo-classic/bundles/sales-extensions/release-notes.md
+          - Financial Extensions Bundle: whats-new/release-notes/etendo-classic/bundles/financial-extensions/release-notes.md
+          - Spanish Localization Bundle: whats-new/release-notes/etendo-classic/bundles/localization-spain-extensions/release-notes.md
+          - Procurement Extensions Bundle: whats-new/release-notes/etendo-classic/bundles/procurement-extensions/release-notes.md
+          - Etendo BI Bundle: whats-new/release-notes/etendo-classic/bundles/etendobi-extensions/release-notes.md
+        - Translation Bundles:
+          - Essentials Extensions Bundle ES: whats-new/release-notes/etendo-classic/translation-bundles/essentials-extensions-es_es/release-notes.md
+          - Platform Extensions Bundle ES: whats-new/release-notes/etendo-classic/translation-bundles/platform-extensions-es_es/release-notes.md
+          - Warehouse Extensions Bundle ES: whats-new/release-notes/etendo-classic/translation-bundles/warehouse-extensions-es_es/release-notes.md
+          - Production Extensions Bundle ES: whats-new/release-notes/etendo-classic/translation-bundles/production-extensions-es_es/release-notes.md
+          - Sales Extensions Bundle ES: whats-new/release-notes/etendo-classic/translation-bundles/sales-extensions-es_es/release-notes.md
+          - Financial Extensions Bundle ES: whats-new/release-notes/etendo-classic/translation-bundles/financial-extensions-es_es/release-notes.md
+          - Procurement Extensions Bundle ES: whats-new/release-notes/etendo-classic/translation-bundles/procurement-extensions-es_es/release-notes.md
+          - Etendo BI Bundle ES: whats-new/release-notes/etendo-classic/translation-bundles/etendobi-extensions-es_es/release-notes.md
+        - Known Issues: whats-new/release-notes/etendo-classic/known-issues.md
+      - Etendo Mobile:
+        - Bundles:
+          - Etendo Classic Subapp Extensions: whats-new/release-notes/etendo-mobile/bundles/classic-subapp-extensions/release-notes.md
 extra:
   version:
     provider: mike
