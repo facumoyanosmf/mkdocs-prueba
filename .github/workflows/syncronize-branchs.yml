@@ -1,24 +1,11 @@
 name: Syncronize Branchs
 
 on:
-    # push:
-    #     branches:
-    #         - main
-    #         - develop
-    # workflow_run:
-    #     workflows:
-    #         - compile docs
-    #     types:
-    #         - completed
     push:
         branches:
+            - main
             - develop
-    workflow_run:
-        workflows:
-            - compile docs
-        types:
-            - completed
-
+            
 permissions:
     contents: write
 
