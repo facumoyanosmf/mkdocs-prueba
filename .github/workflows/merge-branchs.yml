@@ -46,7 +46,7 @@ jobs:
                 git config --local user.name "${{ secrets.ETENDO_NAME }}"
 
             - name: Merge main to develop
-              if: steps.commit-check.outputs.skip_steps != 'true'
+              if: steps.commit-check.outputs.skip_steps != 'true' && endsWith(github.ref, 'main')
               run: |
                 git checkout develop
                 git pull origin develop
@@ -54,7 +54,7 @@ jobs:
                 git push origin develop
 
             - name: Merge develop to main
-              if: steps.commit-check.outputs.skip_steps != 'true'
+              if: steps.commit-check.outputs.skip_steps != 'true' && endsWith(github.ref, 'develop')
               run: |
                 git checkout main
                 git pull origin main
