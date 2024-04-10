@@ -5,7 +5,11 @@ on:
         branches:
             - main
             - develop
-            
+    workflow_run:
+          workflows:
+              - compile docs
+          types:
+              - completed
 permissions:
     contents: write
 
