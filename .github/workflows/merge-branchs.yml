@@ -51,7 +51,7 @@ jobs:
                 git checkout develop
                 git pull origin develop
                 git merge origin/main -m "Merge branch 'main' into 'develop'"
-                git push https://${{ secrets.ETENDOBOT_TOKEN }}@github.com/${{ github.repository }} develop
+                git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} develop
 
             - name: Merge develop to main
               if: steps.commit-check.outputs.skip_steps != 'true' && endsWith(github.ref, 'develop')
@@ -59,4 +59,4 @@ jobs:
                 git checkout main
                 git pull origin main
                 git merge origin/develop -m "Merge branch 'develop' into 'main'"
-                git push https://${{ secrets.ETENDOBOT_TOKEN }}@github.com/${{ github.repository }} main
+                git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} main
