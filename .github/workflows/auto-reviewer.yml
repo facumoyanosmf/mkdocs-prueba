@@ -40,6 +40,7 @@ jobs:
               core.setOutput('pr_number', pr.number);
             } else {
               throw new Error('No pull request found for this commit');
+            }
 
       - name: Log pull request number
         run: echo "Pull request number is ${{ steps.get_pr_number.outputs.pr_number }}"
