@@ -17,28 +17,29 @@ jobs:
       ETENDOBOT_TOKEN: ${{ secrets.ETENDOBOT_TOKEN }}
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
       DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Get pull request number
         id: get_pr_number
-        run: |
-          GITHUB_SHA=$(git rev-parse HEAD)
-          echo "Current commit SHA: $GITHUB_SHA"
-
-          PR_NUMBER=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
-            "https://api.github.com/repos/${{ github.repository_owner }}/${{ github.repository }}/commits/$GITHUB_SHA/pulls" \
-            | jq -r '.[0].number')
-
-          if [ "$PR_NUMBER" == "null" ] || [ -z "$PR_NUMBER" ]; then
-            echo "No pull request found for this commit"
-            exit 1
-          fi
-
-          echo "Pull request number: $PR_NUMBER"
-          echo "::set-output name=pr_number::$PR_NUMBER"
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const sha = process.env.GITHUB_SHA;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const pulls = await github.pulls.list({
+              owner,
+              repo,
+              state: 'open'
+            });
+            console.log(`Pull requests: ${JSON.stringify(pulls.data, null, 2)}`);
+            const pr = pulls.data.find(pr => pr.head.sha === sha);
+            if (pr) {
+              core.setOutput('pr_number', pr.number);
+            } else {
+              throw new Error('No pull request found for this commit');
 
       - name: Log pull request number
         run: echo "Pull request number is ${{ steps.get_pr_number.outputs.pr_number }}"
