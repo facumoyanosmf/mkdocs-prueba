@@ -3,16 +3,16 @@ name: Auto Reviewer
 on:
   workflow_run:
     workflows: [Git Police]
-    types: [completed]
+    types:
+      - completed
 
 jobs:
   make-review:
-    if:  github.head_ref != 'develop'
+    if: github.head_ref != 'develop' && github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     env:
-      PULL_REQUEST: ${{ github.event.pull_request.number }}
-      PROJECT: ${{ github.event.repository.owner.login }}
-      REPO_SLUG: ${{ github.event.repository.name }}
+      PROJECT: ${{ github.event.workflow_run.head_repository.owner.login }}
+      REPO_SLUG: ${{ github.event.workflow_run.head_repository.name }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       ETENDOBOT_TOKEN: ${{ secrets.ETENDOBOT_TOKEN }}
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -21,13 +21,28 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Get pull request number
+        id: get_pr_number
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const pr = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              head: `${context.repo.owner}:${context.sha}`
+            });
+            return pr.data.length > 0 ? pr.data[0].number : null;
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
       - name: Run Docker container
         id: run-docker
         run: |
           printenv
           echo "-------------------------------------------------------------------------"
           echo ${{ env.DOCKERHUB_PASSWORD }} | docker login --username "${{ env.DOCKERHUB_USERNAME }}" --password-stdin
-          docker run -d -p 5000:5000 -e REPO_API_TOKEN="${{ env.ETENDOBOT_TOKEN }}" -e PULL_REQUEST=${{ env.PULL_REQUEST }} -e PROJECT=${{ env.PROJECT }} -e REPO_SLUG=${{ env.REPO_SLUG }} -e OPENAI_API_KEY="${{ env.OPENAI_API_KEY }}" etendo/code-reviewer:latest      
+          docker run -d -p 5000:5000 -e REPO_API_TOKEN="${{ env.ETENDOBOT_TOKEN }}" -e PULL_REQUEST=${{ steps.get_pr_number.outputs.result }} -e PROJECT=${{ env.PROJECT }} -e REPO_SLUG=${{ env.REPO_SLUG }} -e OPENAI_API_KEY="${{ env.OPENAI_API_KEY }}" etendo/code-reviewer:latest
+      
       - name: Make Reviewer API call
         id: call-api
         run: |
