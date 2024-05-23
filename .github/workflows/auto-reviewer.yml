@@ -1,13 +1,12 @@
 name: Auto Reviewer
 
 on:
-  workflow_run:
-    workflows: [Git Police]
-    types: [completed]
+  pull_request:
+    types: [opened, reopened, synchronize]
 
 jobs:
   make-review:
-    if:  github.head_ref != 'develop'
+    if: github.head_ref != 'develop'
     runs-on: ubuntu-latest
     env:
       PULL_REQUEST: ${{ github.event.pull_request.number }}
@@ -36,7 +35,7 @@ jobs:
           if [ $response -ne 200 ]; then
             echo "API call failed with status code $response. This is likely an error related to the PR data, or an internal API error"
 
-            echo "Response text:"
+            echo "Response text"
             cat response.txt
             exit 1
           fi
