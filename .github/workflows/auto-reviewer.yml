@@ -8,11 +8,11 @@ on:
 
 jobs:
   make-review:
-    if: github.head_ref != 'develop'
+    if: github.head_ref != 'develop' && github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     env:
-      PROJECT: ${{ github.event.workflow_run.head_repository.owner.login }}
-      REPO_SLUG: ${{ github.event.workflow_run.head_repository.name }}
+      PROJECT: ${{ github.event.repository.owner.login }}
+      REPO_SLUG: ${{ github.event.repository.name }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       ETENDOBOT_TOKEN: ${{ secrets.ETENDOBOT_TOKEN }}
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -21,29 +21,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Get pull request number
-        id: get_pr_number
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const sha = process.env.GITHUB_SHA;
-            const owner = context.repo.owner;
-            const repo = context.repo.repo;
-            const pulls = await github.pulls.list({
-              owner,
-              repo,
-              state: 'open'
-            });
-            console.log(`Pull requests: ${JSON.stringify(pulls.data, null, 2)}`);
-            const pr = pulls.data.find(pr => pr.head.sha === sha);
-            if (pr) {
-              core.setOutput('pr_number', pr.number);
-            } else {
-              throw new Error('No pull request found for this commit');
-            }
-
-      - name: Log pull request number
-        run: echo "Pull request number is ${{ steps.get_pr_number.outputs.pr_number }}"
+      - name: Fetch pull request number
+        id: fetch-pr
+        run: |
+          PR_NUMBER=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                      "https://api.github.com/repos/${{ env.PROJECT }}/${{ env.REPO_SLUG }}/pulls?head=${{ env.PROJECT }}:${{ github.head_ref }}" \
+                      | jq '.[0].number')
+          echo "PULL_REQUEST=$PR_NUMBER" >> $GITHUB_ENV
 
       - name: Run Docker container
         id: run-docker
@@ -51,7 +35,7 @@ jobs:
           printenv
           echo "-------------------------------------------------------------------------"
           echo ${{ env.DOCKERHUB_PASSWORD }} | docker login --username "${{ env.DOCKERHUB_USERNAME }}" --password-stdin
-          docker run -d -p 5000:5000 -e REPO_API_TOKEN="${{ env.ETENDOBOT_TOKEN }}" -e PULL_REQUEST=${{ steps.get_pr_number.outputs.pr_number }} -e PROJECT=${{ env.PROJECT }} -e REPO_SLUG=${{ env.REPO_SLUG }} -e OPENAI_API_KEY="${{ env.OPENAI_API_KEY }}" etendo/code-reviewer:latest
+          docker run -d -p 5000:5000 -e REPO_API_TOKEN="${{ env.ETENDOBOT_TOKEN }}" -e PULL_REQUEST=${{ env.PULL_REQUEST }} -e PROJECT=${{ env.PROJECT }} -e REPO_SLUG=${{ env.REPO_SLUG }} -e OPENAI_API_KEY="${{ env.OPENAI_API_KEY }}" etendo/code-reviewer:latest      
 
       - name: Make Reviewer API call
         id: call-api
