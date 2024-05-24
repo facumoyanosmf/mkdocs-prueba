@@ -21,21 +21,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Check PR state
+      - name: Fetch pull request number
         id: fetch-pr
         run: |
           PR_NUMBER=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
                       "https://api.github.com/repos/${{ env.PROJECT }}/${{ env.REPO_SLUG }}/pulls?head=${{ env.PROJECT }}:${{ github.head_ref }}" \
                       | jq '.[0].number')
-          PR_STATE=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-                      "https://api.github.com/repos/${{ env.PROJECT }}/${{ env.REPO_SLUG }}/pulls/$PR_NUMBER" \
-                      | jq '.state')
           echo "PULL_REQUEST=$PR_NUMBER" >> $GITHUB_ENV
-          echo "PULL_REQUEST_STATE=$PR_STATE" >> $GITHUB_ENV
-          if [[ "$PR_STATE" == "closed" ]]; then
-            echo "Pull request was closed. Skipping workflow."
-            exit 0
-          fi
 
       - name: Run Docker container
         id: run-docker
