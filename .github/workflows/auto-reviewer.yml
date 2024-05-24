@@ -21,7 +21,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Fetch pull request number
+      - name: Check PR state
         id: fetch-pr
         run: |
           PR_NUMBER=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
@@ -32,6 +32,10 @@ jobs:
                       | jq '.state')
           echo "PULL_REQUEST=$PR_NUMBER" >> $GITHUB_ENV
           echo "PULL_REQUEST_STATE=$PR_STATE" >> $GITHUB_ENV
+          if [[ "$PR_STATE" == "closed" ]]; then
+            echo "Pull request was closed. Skipping workflow."
+            exit 0
+          fi
 
       - name: Run Docker container
         id: run-docker
