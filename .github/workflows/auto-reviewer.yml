@@ -1,16 +1,15 @@
 name: Auto Reviewer
 
 on:
-  workflow_run:
-    workflows: [Git Police]
-    types:
-      - completed
+  pull_request:
+    types: [opened, reopened, synchronize]
 
 jobs:
   make-review:
     if: github.head_ref != 'develop'
     runs-on: ubuntu-latest
     env:
+      PULL_REQUEST: ${{ github.event.pull_request.number }}
       PROJECT: ${{ github.event.repository.owner.login }}
       REPO_SLUG: ${{ github.event.repository.name }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -21,13 +20,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Fetch pull request number
-        id: fetch-pr
+      - name: Check pull request state
+        id: check-pr-state
         run: |
-          PR_NUMBER=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-                      "https://api.github.com/repos/${{ env.PROJECT }}/${{ env.REPO_SLUG }}/pulls?head=${{ env.PROJECT }}:${{ github.head_ref }}" \
-                      | jq '.[0].number')
-          echo "PULL_REQUEST=$PR_NUMBER" >> $GITHUB_ENV
+          PR_STATE=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                      "https://api.github.com/repos/${{ env.PROJECT }}/${{ env.REPO_SLUG }}/pulls/${{ env.PULL_REQUEST }}" \
+                      | jq -r '.state')
+          MERGED=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                      "https://api.github.com/repos/${{ env.PROJECT }}/${{ env.REPO_SLUG }}/pulls/${{ env.PULL_REQUEST }}" \
+                      | jq -r '.merged')
+          echo "Pull request state: $PR_STATE"
+          echo "Pull request merged: $MERGED"
+          if [[ "$PR_STATE" == "closed" && "$MERGED" == "false" ]]; then
+            echo "Pull request was closed and not merged. Skipping workflow."
+            exit 0
+          fi
 
       - name: Run Docker container
         id: run-docker
