@@ -1,15 +1,16 @@
 name: Auto Reviewer
 
 on:
-  pull_request:
-    types: [opened, reopened, synchronize]
+  workflow_run:
+    workflows: [Git Police]
+    types:
+      - completed
 
 jobs:
   make-review:
     if: github.head_ref != 'develop'
     runs-on: ubuntu-latest
     env:
-      PULL_REQUEST: ${{ github.event.pull_request.number }}
       PROJECT: ${{ github.event.repository.owner.login }}
       REPO_SLUG: ${{ github.event.repository.name }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
